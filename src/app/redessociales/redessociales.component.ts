@@ -9,7 +9,7 @@ declare var $:any;
   templateUrl: './redessociales.component.html',
   styleUrls: ['./redessociales.component.css'],
   })
-
+ 
 export class RedesComponent{
 
   @ViewChild('selectElem') el:ElementRef;
