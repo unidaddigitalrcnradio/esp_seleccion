@@ -1160,13 +1160,13 @@ font-size: 62px !important;
     display: none;
 
     }
-    
-        .mobile_n {
-            display: none;
-        }
-        li.mobile {
-    display: block;
-}
+
+    .mobile_n {
+        display: none;
+    }
+    li.mobile {
+        display:inline-block;
+    }
     
 }
 
