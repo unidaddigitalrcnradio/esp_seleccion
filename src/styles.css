@@ -957,7 +957,7 @@ font-size: 62px !important;
     padding-bottom: 5px;
     }
     .owl-controls {
-        bottom: 195px;
+        bottom: 215px;
     }
     .perfil a {
     position: relative;
@@ -977,7 +977,11 @@ font-size: 62px !important;
     top: 10px;
     }
     .bg-black iframe {
-    height: 330px;
+    height: 330px; 
+    }
+    #owl-demo .owl-controls {
+    bottom: 40px !important;
+    width: 100% !important;
     }
         ul.redes_sociales {
     text-align: center;
@@ -1054,13 +1058,13 @@ font-size: 62px !important;
     .galeria h1 {
         padding-bottom: 30px;
         }
-    .frases {
+  .frases {
     background-position: center 0px;
     background-size: cover;
     height: auto;
     text-align: center;
-    padding-bottom: 40px;
-    }
+    padding-bottom: 60px;
+}
     .frases h1 {
     padding-bottom: 30px;
     }
