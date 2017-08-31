@@ -1,0 +1,7 @@
+{
+    "www.lafm.com.co/*":{
+        "target":"localhost:4200/",
+        "secure":false,
+        "logLevel": "debug"
+    }
+}
