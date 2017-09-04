@@ -1,6 +1,6 @@
 {
     "www.lafm.com.co/*":{
-        "target":"localhost:4200/",
+        "target":"elpapaencolombia.co/",
         "secure":false,
         "logLevel": "debug"
     }

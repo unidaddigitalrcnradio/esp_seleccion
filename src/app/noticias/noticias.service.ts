@@ -15,11 +15,6 @@ export class NoticiasService {
 	constructor(private _http: Http, @Inject(DOCUMENT) private document: any) { }
 
 	getJson(_url){
-		const headers = new Headers();
-		headers.append('Origin', this.document.location.href);
-        headers.append('Access-Control-Allow-Headers', 'Content-Type');
-        headers.append('Access-Control-Allow-Methods', 'GET');
-		headers.append('Access-Control-Allow-Origin', '*');
 		// petición por get a esa url de un api rest de pruebas
 		let ObjJson = this._http.get(_url).map(res => res.json());
 		return ObjJson;
@@ -33,6 +28,10 @@ export class NoticiasService {
 		
 			var id = _json[i].id;
 			var titulo:string = _json[i].title.rendered;
+			titulo = this.arreglarStrings('&#8216;','"', titulo);
+			titulo = this.arreglarStrings('&#8217;','"', titulo);
+			titulo = titulo.substr(0,71);
+
 			var teaser: string = _json[i].excerpt.rendered;
 
 			var fecha:Date = _json[i].date;
@@ -40,6 +39,7 @@ export class NoticiasService {
 			var logoMarca = _json[i].logomarca;
 			var imgjson = _json[i].imgjson;
 			var contenido = _json[i].content.rendered;
+
 			if (teaser === ''){
 				let contRemp:string = contenido;
 				contRemp = this.arreglarStrings('<p style="text-align: justify;">','', contRemp).trim();
