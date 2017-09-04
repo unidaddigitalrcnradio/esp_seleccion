@@ -34,7 +34,7 @@ constructor(private _notiServ: NoticiasService){
                                         result => {
                                                 this.jsonFm = result;
                                                 //Recorrer el arreglo
-                                                console.log(this.jsonFm);
+                                               
                                                 for (let _p of this.jsonFm){
                                                     _p.logomarca = 'http://image.rcn.com.co.s3.amazonaws.com/rcnradio/fm.jpg';
                                                     let valor;
