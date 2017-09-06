@@ -73,7 +73,11 @@ header {
 }
 
 
-
+.bg-black2 {
+    background: #000000;
+    padding-top: 125px;
+    padding-bottom: 30px;
+}
 
 
 .cenefa {
@@ -977,7 +981,7 @@ font-size: 62px !important;
     top: 10px;
     }
     .bg-black iframe {
-    height: 330px; 
+    height: 320px !important; 
     }
     #owl-demo .owl-controls {
     bottom: 40px !important;
