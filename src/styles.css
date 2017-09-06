@@ -82,7 +82,16 @@ header {
 
 .cenefa {
     background-image: url(assets/img/cenefa.png);
-        background-repeat: repeat-x;
+    background-repeat: repeat-x;
+    padding: 10px 0;
+    float: left;
+    width: 100%;
+    margin-top: 94px;
+    background-color: white;
+}
+#nueva_cenefa {
+    background-image: url(assets/img/cenefa.png);
+    background-repeat: repeat-x;
     padding: 10px 0;
     float: left;
     width: 100%;
