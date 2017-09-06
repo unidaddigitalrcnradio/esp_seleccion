@@ -16,8 +16,7 @@ export class AppComponent {
     }else{
       this.activar = false;
     }
-
-     console.log(this.date.getTime());
+  //console.log(this.dateactivo);
   }
   
 }
