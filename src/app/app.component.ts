@@ -14,9 +14,9 @@ export class AppComponent {
   datefinEvento = new Date(2017,8,6,18).getTime();
 
   constructor(){
-    if(this.date.getTime() >= this.dateactivo){
+    if(this.date.getTime() <= this.dateactivo){
       
-      if(this.date.getTime() >= this.datefinEvento ){
+      if(this.date.getTime() <= this.datefinEvento ){
         this.activarPapa = true;
         this.activar = false;
       }else{
