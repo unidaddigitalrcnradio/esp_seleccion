@@ -27,7 +27,6 @@ export class AppComponent {
       this.activar = false;
       this.activarPapa = false;
     }
-  //console.log(this.dateactivo);
   }
   
 }
