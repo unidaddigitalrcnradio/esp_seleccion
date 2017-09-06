@@ -12,6 +12,8 @@ declare var $:any;
 
 export class RelojComponent{
 
+  activarVideo:boolean = false;
+
   @ViewChild('selectElem') el:ElementRef;
     ngAfterViewInit() {
       function getTimeRemaining(endtime) {
@@ -47,6 +49,7 @@ export class RelojComponent{
       
           if (t.total <= 0) {
             clearInterval(timeinterval);
+            this.activarVideo = true;
           }
         }
       

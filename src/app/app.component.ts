@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Bienvenida al Papa';
+  activar:boolean;
+  date:Date = new Date();
+  dateactivo = new Date(2017,8,6,16).getTime();
+
+  constructor(){
+    if(this.date.getTime() <= this.dateactivo){
+      this.activar = true;
+    }else{
+      this.activar = false;
+    }
+
+     console.log(this.date.getTime());
+  }
+  
 }
