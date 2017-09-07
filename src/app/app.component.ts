@@ -18,9 +18,7 @@ export class AppComponent {
   dateOfflive2Fin = new Date(2017,8,8,10,30).getTime();
 
 
-
   // Pruebas
-
   // dateOfflive1Ini = new Date(2017,8,7,14).getTime();
   // dateOfflive1Fin = new Date(2017,8,7,15,30).getTime();
   // dateOfflive2Ini = new Date(2017,8,7,18).getTime();
