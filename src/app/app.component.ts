@@ -6,26 +6,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activar:boolean;
-  activarPapa:boolean;
+  offlive1:boolean = false;
+  offlive2:boolean = false;
+  live:boolean = false;
+  porDefecto:boolean = false;
 
-  date:Date = new Date();
-  dateactivo = new Date(2017,8,6,16).getTime();
-  datefinEvento = new Date(2017,8,6,17).getTime();
+  now:Date = new Date();
+  dateOfflive1Ini = new Date(2017,8,7,14).getTime();
+  dateOfflive1Fin = new Date(2017,8,7,15,30).getTime();
+  dateOfflive2Ini = new Date(2017,8,7,18).getTime();
+  dateOfflive2Fin = new Date(2017,8,8,10,30).getTime();
+
+
+
+  // Pruebas
+
+  // dateOfflive1Ini = new Date(2017,8,7,14).getTime();
+  // dateOfflive1Fin = new Date(2017,8,7,15,30).getTime();
+  // dateOfflive2Ini = new Date(2017,8,7,18).getTime();
+  // dateOfflive2Fin = new Date(2017,8,8,10,30).getTime();
+
 
   constructor(){
-    if(this.date.getTime() >= this.dateactivo){
-      
-      if(this.date.getTime() >= this.datefinEvento ){
-        this.activarPapa = true;
-        this.activar = false;
-      }else{
-        this.activar = true;
-        this.activarPapa = false;
-      }
+    if(this.now.getTime() >= this.dateOfflive1Ini && this.now.getTime() <= this.dateOfflive1Fin){
+      this.offlive1 = true;
+    }else if(this.now.getTime() >= this.dateOfflive2Ini && this.now.getTime() <= this.dateOfflive2Fin){
+      this.offlive2 = true;
     }else{
-      this.activar = false;
-      this.activarPapa = false;
+      this.live = true;
     }
   }
   

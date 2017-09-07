@@ -30,7 +30,7 @@
   </div>
   </header>
 
-  <div class="cenefa" id="nueva_cenefa" *ngIf="activar || activarPapa">
+  <div class="cenefa" id="nueva_cenefa" *ngIf="live">
       <div class="row">
           <div class="large-12 columns">
              <div class="btn_ver"></div>            
@@ -39,10 +39,12 @@
   </div> 
   
   <!--- streaming - contador -->
+  <!-- offLive01 -->
    <div class="bg-black">
-    <div class="row" *ngIf="!activar && !activarPapa">
+    <div class="row" *ngIf="porDefecto">
         <div class="large-7 small-12  columns">
             <div class="destacada" >
+               
                 <iframe  width="" style="width: 100%;" height="400" src="https://www.youtube.com/embed/txEsQ6PfN3A" frameborder="0" allowfullscreen></iframe>
             </div>
         </div> 
@@ -53,29 +55,31 @@
         </div>
     </div>
 
-    <!-- Despues de las 4pm 6/9/2017 -->
-    <div class="row" *ngIf="activar && !activarPapa">
+        <!-- offLive01 -->
+    <div class="row" *ngIf="offlive1">
+                <div class="large-12 small-12  columns">
+                    <div class="destacada" >
+                            <iframe style="width: 100%; height: 500px;"  width="" height=""  src="https://www.youtube.com/embed/THTvGQ8I5sU" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe style="width: 100%; height: 500px;"  width="" height="" src="https://www.youtube.com/embed/7IGsc0bZHBY" frameborder="0" allowfullscreen></iframe> -->
+                    </div>
+                 </div> 
+            </div>
+
+    <!-- offLive02 -->
+    <div class="row" *ngIf="offlive2">
         <div class="large-12 small-12  columns">
             <div class="destacada" >
-                <iframe style="width: 100%; height: 500px;" id="ls_embed_1504717891" src="https://livestream.com/accounts/13907141/events/4213588/player?width=640&height=360&autoPlay=true&mute=false" width="" height="" frameborder="0" allowfullscreen> </iframe>
-                <!-- <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/Gy9RIx1dPsg" frameborder="0" allowfullscreen></iframe> -->
+                <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/LX4XU9Vx9uc" frameborder="0" allowfullscreen></iframe>
             </div>
          </div> 
     </div>
 
-    <!-- Despues de las 6pm del 6/9/2017 -->
-    <div class="row" *ngIf="!activar && activarPapa">
+    <!-- LIVE -->
+    <div class="row" *ngIf="live">
             <div class="large-12 small-12  columns">
                 <div class="destacada">
                     <!-- iframeFantastica -->
-                    <!-- <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe> -->
-                    <!-- <iframe style="width: 100%; height: 500px;" id="ls_embed_1504717891" src="https://livestream.com/accounts/13907141/events/4213588/player?width=640&height=360&autoPlay=true&mute=false" width="" height="" frameborder="0" allowfullscreen> </iframe> -->
-                    <!-- <iframe style="width: 100%; height: 500px;" id="ls_embed_1504743224" src="https://livestream.com/accounts/13907141/events/4213588/videos/162375495/player?width=640&height=360&enableInfo=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe> -->
-                    <!-- IframeCanaldelPapa -->
-                    <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/7IGsc0bZHBY" frameborder="0" allowfullscreen></iframe>
-                    <!-- <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/Gy9RIx1dPsg" frameborder="0" allowfullscreen></iframe> -->
-                    <!-- <iframe style="width: 100%; height: 500px;" id="ls_embed_1504717891" src="https://livestream.com/accounts/13907141/events/4213588/player?width=640&height=360&autoPlay=true&mute=false" width="" height="" frameborder="0" allowfullscreen> </iframe> -->
-                    
+                    <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
                 </div>
              </div> 
         </div>
