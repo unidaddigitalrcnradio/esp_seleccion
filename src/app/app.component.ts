@@ -11,7 +11,7 @@ export class AppComponent {
 
   date:Date = new Date();
   dateactivo = new Date(2017,8,6,16).getTime();
-  datefinEvento = new Date(2017,8,6,18).getTime();
+  datefinEvento = new Date(2017,8,6,17).getTime();
 
   constructor(){
     if(this.date.getTime() >= this.dateactivo){

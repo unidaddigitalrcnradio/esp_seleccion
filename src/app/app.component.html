@@ -30,7 +30,7 @@
   </div>
   </header>
 
-  <div class="cenefa" id="nueva_cenefa">
+  <div class="cenefa" id="nueva_cenefa" *ngIf="activar || activarPapa">
       <div class="row">
           <div class="large-12 columns">
              <div class="btn_ver"></div>            
@@ -67,7 +67,9 @@
     <div class="row" *ngIf="!activar && activarPapa">
             <div class="large-12 small-12  columns">
                 <div class="destacada">
-                        <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/Gy9RIx1dPsg" frameborder="0" allowfullscreen></iframe>
+
+<iframe style="width: 100%; height: 500px;" id="ls_embed_1504743224" src="https://livestream.com/accounts/13907141/events/4213588/videos/162375495/player?width=640&height=360&enableInfo=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
+                        <!-- <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/Gy9RIx1dPsg" frameborder="0" allowfullscreen></iframe> -->
                     <!-- <iframe style="width: 100%; height: 500px;" id="ls_embed_1504717891" src="https://livestream.com/accounts/13907141/events/4213588/player?width=640&height=360&autoPlay=true&mute=false" width="" height="" frameborder="0" allowfullscreen> </iframe> -->
                     <!-- <iframe style="width: 100%; height: 500px;" width="" height="" src="https://www.youtube.com/embed/Gy9RIx1dPsg" frameborder="0" allowfullscreen></iframe> -->
                 </div>
