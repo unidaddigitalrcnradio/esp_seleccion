@@ -280,6 +280,7 @@ h1.titleN {
     padding: 0;
     text-align: left;
     line-height: 1.2;
+    height: 60px;
 }
 
 .date {
