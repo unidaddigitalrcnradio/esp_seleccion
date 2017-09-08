@@ -30,7 +30,7 @@
   </div>
   </header>
 
-  <div class="cenefa" id="nueva_cenefa" *ngIf="live">
+  <div class="cenefa" id="nueva_cenefa" *ngIf="live || liveHeader">
       <div class="row">
           <div class="large-12 columns">
              <div class="btn_ver"></div>            
@@ -40,7 +40,35 @@
   
   <!--- streaming - contador -->
 
-   <div class="bg-black">
+  <!-- Estado permanente en Live -->
+  <div class="bg-black" *ngIf="permaneceLive">
+        <!-- LIVE -->
+        <div class="row">
+                <div class="large-12 small-12  columns">
+                    <div class="destacada">
+                        <!-- iframeFantastica -->
+                        <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
+                    </div>
+                 </div> 
+        </div>
+</div>    
+
+  <!-- Estado permanente en Contingencia -->
+<div class="bg-black" *ngIf="permaneceContingencia">
+        <!-- Contingencia -->
+        <div class="row">
+                <div class="large-12 small-12  columns">
+                    <div class="destacada">
+                        {{urlContingenci}}
+                        <!-- iframe Contingencia -->
+                        <iframe style="width: 100%; height: 500px;"  width="" height="" [src]="urlContingenci | domseguro:'https://www.youtube.com/embed/' " frameborder="0" allowfullscreen></iframe>
+                        
+                    </div>
+                 </div> 
+        </div>
+</div>  
+
+   <div class="bg-black" *ngIf="permaneceNormal">
     <!-- <div class="row" *ngIf="porDefecto">
         <div class="large-7 small-12  columns">
             <div class="destacada" >
@@ -74,6 +102,43 @@
          </div> 
     </div>
 
+        <!-- offLive03 -->
+        <div class="row" *ngIf="offlive3">
+                <div class="large-12 small-12  columns">
+                    <div class="destacada" >
+                            <iframe style="width: 100%; height: 500px;"  width="" height="" src="https://www.youtube.com/embed/ZZV3O3qz1Ns" frameborder="0" allowfullscreen></iframe>
+                           
+                    </div>
+                 </div> 
+            </div>
+
+                <!-- offLive04 -->
+    <div class="row" *ngIf="offlive4">
+            <div class="large-12 small-12  columns">
+                <div class="destacada" >
+                    <iframe style="width: 100%; height: 500px;"  width="" height=""  src="https://www.youtube.com/embed/7iM5y7vEIAQ" frameborder="0" allowfullscreen></iframe>    
+                </div>
+             </div> 
+        </div>
+
+            <!-- offLive05 -->
+    <div class="row" *ngIf="offlive5">
+            <div class="large-12 small-12  columns">
+                <div class="destacada" >
+                        <iframe style="width: 100%; height: 500px;"  width="" height="" src="https://www.youtube.com/embed/taS7Kem5F20" frameborder="0" allowfullscreen></iframe>
+                </div>
+             </div> 
+        </div>
+
+            <!-- offLive06 -->
+    <div class="row" *ngIf="offlive6">
+            <div class="large-12 small-12  columns">
+                <div class="destacada" >
+                        <iframe style="width: 100%; height: 500px;"  width="" height="" src="https://www.youtube.com/embed/7iM5y7vEIAQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+             </div> 
+        </div>
+    
     <!-- LIVE -->
     <div class="row" *ngIf="live">
             <div class="large-12 small-12  columns">
@@ -82,7 +147,8 @@
                     <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
                 </div>
              </div> 
-        </div>
+    </div>
+   
     </div>
 <!-- streaming - contador  -->
     

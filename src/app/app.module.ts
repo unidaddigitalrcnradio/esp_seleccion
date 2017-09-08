@@ -10,6 +10,11 @@ import { GaleriaComponent } from './galerias/galeria.component';
 import { RelojComponent } from './reloj/reloj.component';
 import { RedesComponent } from './redessociales/redessociales.component';
 
+//Servicios
+import { LeerArchivoService } from "./leerconfig.service";
+
+// PIPES
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -17,14 +22,16 @@ import { RedesComponent } from './redessociales/redessociales.component';
     NoticiaComponent,
     GaleriaComponent,
     RelojComponent,
-    RedesComponent
+    RedesComponent,
+    DomseguroPipe
     ],
   imports: [
     BrowserModule,
     HttpModule
   ],
   providers: [
-    {provide:LOCALE_ID, useValue:"es"}
+    {provide:LOCALE_ID, useValue:"es"},
+    LeerArchivoService
   ],
   bootstrap: [AppComponent]
 })
