@@ -16,58 +16,55 @@ export class NoticiasService {
 
 	getJson(_url){
 		// petición por get a esa url de un api rest de pruebas
-		let ObjJson = this._http.get(_url).map(res => res.json());
-		return ObjJson;
+		return this._http.get(_url).map(res => res.json());
+
 	}
-	
+
 	crearObjNoti(_json){
-    	
+		console.log("entro a crear el objeto");
+		console.log(_json.length);
 		let ArregloNoticias:Noticia[] = [];
 
-    	for (let i = 0; i < _json.length; i++) {
-		
-			var id = _json[i].id;
-			var titulo:string = _json[i].title.rendered;
+		// for (var i = 0; i < array.length; i++) {
+		// 	var element = array[i];
+
+		// }
+
+		for (let noti of _json) {
+			console.log("no entro");
+			console.log(noti);
+			var id = noti.id;
+			var titulo:string = noti.title;
+
 			titulo = this.arreglarStrings('&#8216;','"', titulo);
 			titulo = this.arreglarStrings('&#8217;','"', titulo);
 			titulo = titulo.substr(0,71);
 
-			var teaser: string = _json[i].excerpt.rendered;
+			var teaser: string = noti.teaser;
 
-			var fecha:Date = _json[i].date;
-			var rutaUrl = _json[i].link;
-			var logoMarca = _json[i].logomarca;
-			var imgjson = _json[i].imgjson;
-			var contenido = _json[i].content.rendered;
-
-			if (teaser === ''){
-				let contRemp:string = contenido;
-				contRemp = this.arreglarStrings('<p style="text-align: justify;">','', contRemp).trim();
-				contRemp = this.arreglarStrings('<!--more-->','', contRemp);
-				contRemp = this.arreglarStrings('<p>','', contRemp);
-				contRemp = this.arreglarStrings('</p>','', contRemp);
-				contRemp = this.arreglarStrings('<strong>','', contRemp);
-				contRemp = this.arreglarStrings('</strong>','', contRemp);
-				contRemp = this.arreglarStrings('<br />','',contRemp);
-				contRemp = contRemp.trim();
-				teaser = contRemp.substring(0,73);
-			}else{
 				teaser = teaser.trim();
 				teaser = this.arreglarStrings('<p>','', teaser);
 				teaser = this.arreglarStrings('</p>','', teaser);
 				teaser = this.arreglarStrings('<strong>','', teaser);
 				teaser = this.arreglarStrings('</strong>','', teaser);
-			}
-			//console.log(teaser);
-			teaser = this.arreglarStrings('<p>','',teaser);
-			teaser = this.arreglarStrings('</p>','',teaser);
-    		let n = new Noticia(id, titulo.substring(0,73) ,teaser.substring(0,78) ,fecha , rutaUrl,logoMarca , imgjson ,contenido);	
+
+
+
+			var fecha:Date = noti.created;
+			var rutaUrl = noti.path;
+			var logoMarca = "http://www.antena2.com.co/sites/default/files/imagenes/logoantena2_1372437936.jpg?1372437936";
+			var img = noti.image;
+			var contenido = "";
+
+			let n = new Noticia(id, titulo.substring(0,73) ,teaser.substring(0,78) ,fecha , rutaUrl,logoMarca , img ,contenido);
     		ArregloNoticias.push(n);
 		}
+
+
 		return ArregloNoticias;
 	}
 
-//Crea una lista completa y la ordena 
+//Crea una lista completa y la ordena
 	crearListaCompleta(noti1: Noticia[] ,noti2: Noticia[]){
 		let ArregloNoticias1:Noticia[] = [];
 
@@ -80,12 +77,12 @@ export class NoticiasService {
 		{ArregloNoticias1.push(_n2);
 		}
 
-		
+
 		var n = ArregloNoticias1.length;
 		var k;
 
-			
-		for (var m = n; m >= 0; m--) 
+
+		for (var m = n; m >= 0; m--)
 		{
 			for (var i = 0; i < n - 1; i++) {
 				k = 1 +i;
@@ -94,8 +91,8 @@ export class NoticiasService {
 					this.swapElements(i,k, ArregloNoticias1);
 				}
 			}
-		
-			
+
+
 		}
 		return ArregloNoticias1;
 
@@ -120,7 +117,7 @@ export class NoticiasService {
 					result => {
 						imgDatos = result;
 						allnoti[i].urlImg = imgDatos.source_url;
-					
+
 					},
 					error => {
 						errorMessage = <any>error;
