@@ -935,7 +935,10 @@ font-size: 62px !important;
     .bg-black {
     padding-top: 90px;
     }
-        
+    #log_eliminatorias {
+    max-width: 80px;
+    margin-bottom: 6px;
+    }
         
     .destacada p {
     background: #fff;
@@ -1101,7 +1104,7 @@ font-size: 62px !important;
     height: 50px;
     padding-top: 5px;
     position: absolute;
-    top: 18px;
+    top: 28px;
     left: 0px;
     }
 
@@ -1151,11 +1154,12 @@ font-size: 62px !important;
     background-repeat: no-repeat;
     }
     .menu > li {
-    width: 100%;
+     width: 100%;
     display: block;
-    background: #31509f;
+    background: #ffcc00;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding-bottom: 0;
+    padding-bottom: 15px;
+    padding-top: 15px;
     }
     .menu > li:hover {
     background: none;
