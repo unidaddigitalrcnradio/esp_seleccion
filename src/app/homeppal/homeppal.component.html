@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" class="header header--fixed hide-from-print" role="banner">
   <div class="row">
     <div class="h_site">
 
@@ -28,67 +28,7 @@
     </div>
     </header>
 
-   
-  
-   
-    <!-- <div class="cenefa" id="nueva_cenefa" >
-        <div class="row">
-            <div class="large-12 columns">
-         
-            </div>
-        </div>
-    </div> -->
-    
-    <!--- streaming - contador -->
-
-    <!-- Estado permanente en Live -->
-          <div class="btn_ver"></div>
-    <div class="bg-black" *ngIf="permaneceLive">              
-          <!-- LIVE -->
-          <div class="row">
-                 
-                  <div class="large-12 small-12  columns">
-                      <div class="destacada">              
-                          <!-- iframeFantastica -->
-                          <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
-                      </div>
-                   </div>
-          </div>
-  </div>
-
-    
-    
-
-    <!-- Estado permanente en Contingencia -->
-  <div class="bg-black" *ngIf="permaneceContingencia">
-          <!-- Contingencia -->
-          <div class="row">
-                  <div class="large-12 small-12  columns">
-                      <div class="destacada">
-                          <!-- iframe Contingencia -->
-                          <iframe style="width: 100%; height: 500px;"  width="" height="" [src]="urlContingenci | domseguro:'https://www.youtube.com/embed/' " frameborder="0" allowfullscreen></iframe>
-
-                      </div>
-                   </div>
-          </div>
-  </div>
-
-     <div class="bg-black" >
-      <!-- <div class="row">
-          <div class="large-7 small-12  columns">
-              <div class="destacada" >
-
-                  <iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/txEsQ6PfN3A" frameborder="0" allowfullscreen></iframe>
-              </div>
-          </div>
-          <div class="large-5 small-12 columns">
-              <div class="contador">
-                  <reloj></reloj>
-              </div>
-          </div>
-      </div> -->
-
-
+<div class="bg-black" >
       <!-- LIVE -->
       <div class="row" >
               <div class="large-12 small-12  columns">
@@ -98,8 +38,7 @@
                   </div>
                </div>
       </div>
-
-      </div>
+</div>
   <!-- streaming - contador  -->
 
         <!--- Radio --->
@@ -130,17 +69,17 @@
 
 
        </div>
-       
-       
-        <!--  -->
+
+
+
         <div class="frases" id="frases">
             <div class="row">
-<div class="large-2 small-12 columns"></div>  
-<div class="large-10 small-12 columns">
-    <div class="dateposition">
-        <iframe src="http://datafactory.rcn.com.co/html/v3/page.html?channel=deportes.futbol.eliminatorias&lang=es_LA&page=posiciones" width="100%" height="500" scrolling="no" style="width: 1px; min-width: 100%; *width: 100%;" class=""></iframe>
-    </div>
-</div>
+                <div class="large-2 small-12 columns"></div>
+                <div class="large-10 small-12 columns">
+                    <div class="dateposition">
+                        <iframe src="http://datafactory.rcn.com.co/html/v3/page.html?channel=deportes.futbol.eliminatorias&lang=es_LA&page=posiciones" width="100%" height="500" scrolling="no" style="width: 1px; min-width: 100%; *width: 100%;" class=""></iframe>
+                    </div>
+                </div>
             </div>
         </div>
         <!--- / --->
@@ -222,7 +161,7 @@
                                       <div class="tool tool--right-v">
                                       <div class="tip"></div>
                                       <span style="position: relative; left: -29px;top: -23px;">Paraguay</span>
-                                      <div class="hover-tool"> 
+                                      <div class="hover-tool">
                                       <div class="hover-tool__tip"></div>
                                       <span class="hover-tool__text">El jueves 6 de octubre del 2016 en Asunción por la novena jornada, Colombia venció a Paraguay 1-0 con gol de Edwin Cardona (92min.).</span> </div>
                                       </div>
@@ -264,41 +203,5 @@
            <redessociales></redessociales>
      </footer>
 
-
-        <!--Redes Sociales -->
-
-
-
-
-
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="src/app/reloj/js/jquery.epiclock.min.js"></script>
-
-
-      <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.2/js/foundation.min.js"></script> -->
-      <link rel='stylesheet' id='photospace-res-styles-css' href='http://www.lafm.com.co/wp-content/plugins/photospace-responsive/gallery.css?ver=4.8.1' type='text/css' media='all' />
-      <script type='text/javascript' src='http://www.lafm.com.co/wp-content/plugins/photospace-responsive/jquery.galleriffic.js?ver=4.8.1'></script>
-      <!-- photospace [ START ] -->
-      <style type="text/css">
-      .photospace_res ul.thumbs img {
-      width:50px;
-      height:50px;
-      }
-      .photospace_res .thumnail_row a.pageLink {
-      width:50px;
-      height:50px;
-      line-height: 50px;
-      }
-      .photospace_res ul.thumbs li{
-      margin-bottom:10px !important;
-      margin-right:10px !important;
-      }
-      .photospace_res .next,
-      .photospace_res .prev{
-      margin-right:10px !important;
-      margin-bottom:10px !important;
-      }
-      </style><!-- photospace [ END ] -->
 
 

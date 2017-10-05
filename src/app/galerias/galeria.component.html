@@ -1,15 +1,19 @@
-<!--- Galeria -->  
+<!--- Galeria -->
     <div class="galeria animated fadeInDown" id="galeria">
        <div class="row">
         <h1>GALERIA</h1>
         <div class="large-12 columns">
         <div class="w80">
-               <div id="owl-galeria" class="owl-carousel">                   
+               <div id="owl-galeria" class="owl-carousel">
                     <div id="" class="item" *ngFor="let img of objGaleria">
-                        <img src="{{ img }}">
-                    </div>                  
+                        <img [src]="img.path">
+                    </div>
             </div>
         </div>
         </div>
-       </div> 
+       </div>
 </div>
+<!--
+<div id="" class="item" *ngFor="let img of objGaleria">
+        <img [src]="img.path">
+    </div> -->

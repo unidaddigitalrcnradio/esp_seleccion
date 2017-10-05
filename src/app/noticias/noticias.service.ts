@@ -24,34 +24,31 @@ export class NoticiasService {
 
 		let ArregloNoticias:Noticia[] = [];
 
-		console.log(_json);
-
 		for (var i = 0; i < _json.length; i++) {
 
-			var id = _json[i].id;
+			var id = _json[i].nid;
 			var titulo:string = _json[i].title;
 
 			titulo = this.arreglarStrings('&#8216;','"', titulo);
 			titulo = this.arreglarStrings('&#8217;','"', titulo);
 			titulo = titulo.substr(0,71);
 
-			var teaser: string = _json[i].teaser;
+			var subtitulo: string = _json[i].subtitle;
 
-				teaser = teaser.trim();
-				teaser = this.arreglarStrings('<p>','', teaser);
-				teaser = this.arreglarStrings('</p>','', teaser);
-				teaser = this.arreglarStrings('<strong>','', teaser);
-				teaser = this.arreglarStrings('</strong>','', teaser);
+			subtitulo = subtitulo.trim();
+			subtitulo = this.arreglarStrings('<p>','', subtitulo);
+			subtitulo = this.arreglarStrings('</p>','', subtitulo);
+			subtitulo = this.arreglarStrings('<strong>','', subtitulo);
+			subtitulo = this.arreglarStrings('</strong>','', subtitulo);
 
-
-
-			var fecha:Date = _json[i].created;
+			let contenido = _json[i].teaser;
+			let fecha:Date = _json[i].created;
 			var rutaUrl = _json[i].path;
 			var logoMarca = "http://www.antena2.com.co/sites/default/files/imagenes/logoantena2_1372437936.jpg?1372437936";
 			var img = _json[i].image;
-			var contenido = "";
 
-			let n = new Noticia(id, titulo.substring(0,73) ,teaser.substring(0,78) ,fecha , rutaUrl,logoMarca , img ,contenido);
+
+			let n = new Noticia(id, titulo.substring(0,73) ,subtitulo.substring(0,78) ,fecha , rutaUrl,logoMarca , img ,contenido);
     		ArregloNoticias.push(n);
 
 
@@ -107,7 +104,7 @@ export class NoticiasService {
 			let imgDatos;
 			let valor:string = allnoti[i].urlImg;
 			if (valor === 'sinImagen'){
-				allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/rcnradio/prev2.jpg';
+				allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/antena2/antena2_col.jpg';
 			}else{
 				this.getJson(valor).subscribe(
 					result => {
@@ -118,7 +115,7 @@ export class NoticiasService {
 					error => {
 						errorMessage = <any>error;
 						if (errorMessage !== null){
-							allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/rcnradio/prev2.jpg';
+							allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/antena2/antena2_col.jpg';
 							console.log(errorMessage);
 						}
 					});

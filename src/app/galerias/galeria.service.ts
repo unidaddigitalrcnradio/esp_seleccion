@@ -14,17 +14,22 @@ export class GaleriaService {
 
     getJson(_url){
         // petición por get a esa url de un api rest de pruebas
-        let ObjJson = this._http.get(_url)
-                            .map(res => res.json());
-        return ObjJson;
-    }
+		return this._http.get(_url).map(res => res.json());
+	}
 
 	crearObjGaleria(_json){
 		let ArregloGaleria:Galeria[] = [];
-		for (let _g of _json){
-			let n =  new Galeria(_g.id, _g.title, _g.content.rendered, _g.date);
-			ArregloGaleria.push(n);
+
+		for (var k in _json) {
+			let p = _json[k].images;
+			for (var img of p) {
+				let n =  new Galeria(img.path);
+				ArregloGaleria.push(n);
+			}
+
+
 		}
+
 	    return ArregloGaleria;
 	}
 
@@ -39,7 +44,7 @@ export class GaleriaService {
 		let arrayImg:String[] = [];
 		let _cadenaSplit = _cadena.split('<img');
 		let cuantoImgExisten = _cadenaSplit.length;
-		
+
 		for (var index = 0; index < cuantoImgExisten -1; index++) {
 			let posicionIni = this.buscarPalabra(cadenaMod, '<img');
 			cadenaMod = cadenaMod.substr(posicionIni, cadenaMod.length);
@@ -47,14 +52,14 @@ export class GaleriaService {
 			let img = cadenaMod.substring(0, posicionFin+2);
 			arrayImg.push(img);
 			cadenaMod = cadenaMod.substr(posicionFin+2, cadenaMod.length)
-			
+
 		}
 		return arrayImg;
 
 	}
 	extraerURLimagen(_arreglo){
 		let arregloFinal:string[] = [];
-		
+
 		for (var i = 0; i < _arreglo.length; i++) {
 			//let cadenaMod:string = _arreglo[i];
 			let posicionIni = this.buscarPalabra(_arreglo[i], 'src="')

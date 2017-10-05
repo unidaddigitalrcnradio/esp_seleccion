@@ -1,14 +1,14 @@
 <!-- Ultima hora  -->
 
 <div class="row">
-    <div class="large-4 columns"  *ngFor="let data of this.arrayAntena2" >
+    <div class="large-4 columns"  *ngFor="let data of finBloque1" >
         <div class="news">
            <a href="{{ data.urlNoti }}" target="_blank">
                 <div class="wrap_img">
                     <img class="imgw100" src="{{ data.urlImg }}" alt="">
                 </div>
                 <div class="card">
-                     <div class="date">{{ data.dateNoti | date: 'mediumDate'}}</div>
+                     <div class="date">{{ data.dateNoti *1000 | date}}</div>
                     <h1 class="titleN" [innerHTML] = "data.titulo">...</h1>
 
                     <div class="descript">
@@ -21,7 +21,7 @@
             </a>
         </div>
   </div>
-<!--
+
 <div class="large-4 columns"  *ngFor="let data2 of finBloque2" >
     <div class="news bloque2" style="display:none">
             <a href="{{ data2.urlNoti }}" target="_blank">
@@ -29,7 +29,7 @@
                         <img class="imgw100" src="{{ data2.urlImg }}" alt="">
                     </div>
                     <div class="card">
-                       <div class="date">{{ data2.dateNoti | date: 'mediumDate'}}</div>
+                       <div class="date">{{ data2.dateNoti *1000 | date}}</div>
                         <h1 class="titleN" [innerHTML] = "data2.titulo">...</h1>
 
                         <div class="descript">
@@ -49,7 +49,7 @@
                         <img class="imgw100" src="{{ data3.urlImg }}" alt="">
                     </div>
                     <div class="card">
-                        <div class="date">{{ data3.dateNoti | date: 'mediumDate'}}</div>
+                        <div class="date">{{ data3.dateNoti *1000 | date}}</div>
                         <h1 class="titleN" [innerHTML] = "data3.titulo">...</h1>
 
                         <div class="descript">
@@ -61,7 +61,7 @@
                     </div>
                 </a>
     </div>
-</div> -->
+</div>
 </div>
 
 <div class="vermas">
