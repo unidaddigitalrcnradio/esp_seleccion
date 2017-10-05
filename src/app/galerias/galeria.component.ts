@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
- 
+
 // Importamos la clase del servicio
 import {GaleriaService} from '../galerias/galeria.service';
 import {Galeria} from '../galerias/galeria';
 import $ from 'jquery/dist/jquery';
- 
+
 @Component({
   selector: 'galeria',
   templateUrl: './galeria.component.html',
@@ -25,21 +25,17 @@ lightboxImages(){
 
 public galeriaJson;
 public errorMessage;
-public objGaleria;
+public objGaleria:Galeria[];
 
 
 constructor(private _galServ: GaleriaService){
 
-        this._galServ.getJson('http://www.lafm.com.co/wp-json/wp/v2/posts/64334')
+        this._galServ.getJson('http://www.antena2.com.co/v1/ws/galeria?nid=113846')
                                     .subscribe(
                                         result => {
                                                 this.galeriaJson = result;
-                                                //console.log(this.galeriaJson);
-                                                //this.objGaleria = this._galServ.crearObjGaleria(this.galeriaJson);
-                                                let htmlContent = this.galeriaJson.content.rendered;
-                                                let objImg = this._galServ.extraerImagen(htmlContent);
-                                                this.objGaleria = this._galServ.extraerURLimagen(objImg);
-                                              
+                                                this.objGaleria = this._galServ.crearObjGaleria(this.galeriaJson);
+
                                           },
                                         error => {
                                             this.errorMessage = <any>error;

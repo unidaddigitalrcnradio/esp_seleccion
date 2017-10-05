@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Config } from "../config";
+import { } from "headroom.js/dist/headroom";
 
 
 declare var jQuery:any;
@@ -13,11 +14,10 @@ declare var $:any;
 export class HomeppalComponent implements OnInit {
 
   constructor(){
-
   }
 
   ngOnInit() {
 
-  }
+ }
 
 }

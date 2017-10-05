@@ -23,7 +23,6 @@ export class NoticiasService {
 	crearObjNoti(_json){
 
 		let ArregloNoticias:Noticia[] = [];
-		console.log(_json);
 
 		for (var i = 0; i < _json.length; i++) {
 
@@ -105,7 +104,7 @@ export class NoticiasService {
 			let imgDatos;
 			let valor:string = allnoti[i].urlImg;
 			if (valor === 'sinImagen'){
-				allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/rcnradio/prev2.jpg';
+				allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/antena2/antena2_col.jpg';
 			}else{
 				this.getJson(valor).subscribe(
 					result => {
@@ -116,7 +115,7 @@ export class NoticiasService {
 					error => {
 						errorMessage = <any>error;
 						if (errorMessage !== null){
-							allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/rcnradio/prev2.jpg';
+							allnoti[i].urlImg = 'http://image.rcn.com.co.s3.amazonaws.com/antena2/antena2_col.jpg';
 							console.log(errorMessage);
 						}
 					});

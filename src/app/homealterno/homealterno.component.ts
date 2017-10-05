@@ -28,7 +28,6 @@ export class HomealternoComponent implements OnInit {
         let lista:Array<string> = data.listaestados;
 
         this.objConfig =  new Config(estado, marcador,mCol,mOtro,lista);
-        console.log(this.objConfig);
 
         this.Reglas(this.objConfig);
 

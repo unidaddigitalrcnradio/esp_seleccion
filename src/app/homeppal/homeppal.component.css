@@ -1,0 +1,18 @@
+.photospace_res ul.thumbs img {
+    width:50px;
+    height:50px;
+    }
+    .photospace_res .thumnail_row a.pageLink {
+    width:50px;
+    height:50px;
+    line-height: 50px;
+    }
+    .photospace_res ul.thumbs li{
+    margin-bottom:10px !important;
+    margin-right:10px !important;
+    }
+    .photospace_res .next,
+    .photospace_res .prev{
+    margin-right:10px !important;
+    margin-bottom:10px !important;
+    }
