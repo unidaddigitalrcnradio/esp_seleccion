@@ -3,10 +3,10 @@
     <div class="h_site">
 
       <div class="top-bar-left small-12 medium-6 large-3 columns">
-              <img class="center" src="assets/img/logo_pv2.png" alt="">
+              <img id="log_eliminatorias" class="center" src="assets/img/Recurso3.png" alt="">
       </div>
       <div class="top-bar-right logo_rcn small-6 medium-6 large-2 columns">
-               <img class="" src="assets/img/rcnradio500.png" alt="">
+               <img class="" src="assets/img/Recurso 1.svg" alt="">
          </div>
       <div class="top-bar-right small-12 large-7 columns">
       <div class="block">
@@ -17,10 +17,9 @@
           </div>
       </div>
       <ul class="menu align-center d-tablet">
-          <li><a href="#ultima" class="ultimair">ULTIMA HORA</a></li>
-          <li><a href="#perfil" class="perfilir">PERFIL</a></li>
-          <li><a href="#agenda" class="agendair">AGENDA</a></li>
-          <li><a href="#frases" class="frasesir">FRASES</a></li>
+          <li><a href="#tabla" class="ultimair">TABLA DE POSICIONES</a></li>
+          <li><a href="#ultimas" class="perfilir">ÚLTIMAS NOTICIAS</a></li>
+          <li><a href="#recorrido" class="agendair">RECORRIDO</a></li>
           <li><a href="#galeria" class="galeriair">GALERIA</a></li>
       </ul>
       </div>
@@ -29,28 +28,36 @@
     </div>
     </header>
 
-    <div class="cenefa" id="nueva_cenefa" >
+   
+  
+   
+    <!-- <div class="cenefa" id="nueva_cenefa" >
         <div class="row">
             <div class="large-12 columns">
-               <div class="btn_ver"></div>
+         
             </div>
         </div>
-    </div>
-
+    </div> -->
+    
     <!--- streaming - contador -->
 
     <!-- Estado permanente en Live -->
-    <div class="bg-black" *ngIf="permaneceLive">
+          <div class="btn_ver"></div>
+    <div class="bg-black" *ngIf="permaneceLive">              
           <!-- LIVE -->
           <div class="row">
+                 
                   <div class="large-12 small-12  columns">
-                      <div class="destacada">
+                      <div class="destacada">              
                           <!-- iframeFantastica -->
                           <iframe style="width: 100%; height: 500px;" id="ls_embed_1504792912" src="https://livestream.com/accounts/13907141/events/4366726/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false" width="" height="" frameborder="0" scrolling="no" allowfullscreen> </iframe>
                       </div>
                    </div>
           </div>
   </div>
+
+    
+    
 
     <!-- Estado permanente en Contingencia -->
   <div class="bg-black" *ngIf="permaneceContingencia">
@@ -123,11 +130,25 @@
 
 
        </div>
+       
+       
+        <!--  -->
+        <div class="frases" id="frases">
+            <div class="row">
+<div class="large-2 small-12 columns"></div>  
+<div class="large-10 small-12 columns">
+    <div class="dateposition">
+        <iframe src="http://datafactory.rcn.com.co/html/v3/page.html?channel=deportes.futbol.eliminatorias&lang=es_LA&page=posiciones" width="100%" height="500" scrolling="no" style="width: 1px; min-width: 100%; *width: 100%;" class=""></iframe>
+    </div>
+</div>
+            </div>
+        </div>
+        <!--- / --->
       <div id="ultima">
           <div class="news">
               <div class="row">
                  <div class="large-12  small-12 columns">
-                  <h1>ÚLTIMA HORA</h1>
+                  <h1>ÚLTIMAS NOTICIAS</h1>
                   <noticias></noticias>
                   </div>
               </div>
@@ -135,7 +156,7 @@
       </div>
 
         <!--- perfil --->
-        <div class="perfil" id="perfil">
+        <!-- <div class="perfil" id="perfil">
             <div class="row">
                 <h1>PERFIL</h1>
                 <div class="large-5 small-5 columns">
@@ -146,20 +167,20 @@
                     <a href="http://www.rcnradio.com/visitadelpapa/francisco-el-papa-que-rompio-todos-los-paradigmas/" target="_blank">   VER PERFIL COMPLETO</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--- /perfil --->
         <!--- Agenda --->
         <div class="agenda" id="agenda">
             <div class="row">
-                <h1>AGENDA</h1>
+               <!--  <h1>AGENDA</h1> -->
                 <div class="large-6 small-12  columns">
 
                    <div class="recorridoAgenda">
                         <div class="mobile_n">
-                            <p>RECORRIDO
-                            <br><span> Y AGENDA</span></p>
+                            <p>RECORRIDO DE COLOMBIA A</p>
+                            <p><span> RUSIA 2018</span></p>
                         </div>
-                        <a href="http://www.rcnradio.com/visitadelpapa/itinerario-del-papa-francisco-colombia/" target="_blank">VER AGENDA COMPLETA</a>
+                        <a href="http://www.rcnradio.com/visitadelpapa/itinerario-del-papa-francisco-colombia/" target="_blank">VER DETALLE</a>
 
                    </div>
 
@@ -170,53 +191,63 @@
                         <div class="lookbook__image">
                             <img id="zoom1" src="assets/img/mapa.png" alt="">
 
-                              <div class="hint togmov1" style="top: 45%; left: 39%;;">
-                                  <span class="plus"> 1 </span>
+                              <div class="hint togmov1" style="top: 41%; left: 33%;">
+                                  <span class="plus">  </span>
                                   <span class="hint__dot"></span>
                                   <div class="tool tool--right">
                                   <div class="tip"></div>
-                                  <span>Bogotá</span>
+                                  <span style="position: relative; top: -25px; left: 20px;">Bolivia</span>
                                   <div class="hover-tool">
                                   <div class="hover-tool__tip"></div>
-                                  <span class="hover-tool__text">
-                                  El papa llegará el miércoles 6 de septiembre a <b>Bogotá</b>. El jueves 7 se presentará ante una multitud de jóvenes en la Plaza de Bolivar (10:00 am) y presidirá una misa ante 600 mil personas en el Parque Simón Bolívar (4:00 pm).
+                                  <span class="hover-tool__text">El jueves 24 de marzo del 2016 en La Paz por la quina jornada de la Eliminatoria Sudamericana, el conjunto colombiano ganó su primer partido en condición de visitante, ese día derrotó a Bolivia 3-2 con goles de James Rodríguez (9min.), Carlos Bacca (40min.) y Edwin Cadon (91min.).
                                   </span> </div>
                                   </div>
                               </div>
 
-                                 <div class="hint togmov1" style="top: 35%;left: 39%;">
-                                      <span class="plus"> 3 </span>
+                                 <div class="hint togmov1" style="top: 16%;left: 0%;">
+                                      <span class="plus">  </span>
                                       <span class="hint__dot"></span>
                                       <div class="tool tool--right-m">
                                       <div class="tip"></div>
-                                      <span>Medellín</span>
+                                      <span>Ecuador</span>
                                       <div class="hover-tool">
                                       <div class="hover-tool__tip"></div>
-                                      <span class="hover-tool__text">El sábado 9 de septiembre en <b>Medellín</b>, el santo padre presidirá una misa (10:00 am) en el Aeropuerto Olaya Herrera. Luego (3:00 pm) se reunirá con la comunidad que reside en el Hogar San José. </span> </div>
+                                      <span class="hover-tool__text">El martes 28 de marzo del 2017 en Quito por la decimocuarta jornada, Colombia derrotó a Ecuador 2-0 con goles de James Rodíguez (20min.) y Juan Guillermo Cuadrado (34min.). Hecho histórico, ya que lo logró después de 20 años.</span> </div>
                                       </div>
                                   </div>
 
-                                  <div class="hint togmov1" style="top: 56%;left: 46%;">
-                                      <span class="plus"> 2 </span>
+                                  <div class="hint togmov1" style="top: 56%; left: 46%;">
+                                      <span class="plus">  </span>
                                       <span class="hint__dot"></span>
                                       <div class="tool tool--right-v">
                                       <div class="tip"></div>
-                                      <span>Villavivencio</span>
+                                      <span style="position: relative; left: -29px;top: -23px;">Paraguay</span>
+                                      <div class="hover-tool"> 
+                                      <div class="hover-tool__tip"></div>
+                                      <span class="hover-tool__text">El jueves 6 de octubre del 2016 en Asunción por la novena jornada, Colombia venció a Paraguay 1-0 con gol de Edwin Cardona (92min.).</span> </div>
+                                      </div>
+                                  </div>
+                                  <div class="hint togmov1" style="top: 52%; left: 24%;">
+                                      <span class="plus">  </span>
+                                      <span class="hint__dot"></span>
+                                      <div class="tool tool--right-v">
+                                      <div class="tip"></div>
+                                      <span style="position: relative;left: -128px; top: 7px;">Chile</span>
                                       <div class="hover-tool">
                                       <div class="hover-tool__tip"></div>
-                                      <span class="hover-tool__text">El viernes 8 en <b>Villavicencio</b> el papa celebrará una eucaristía en Catama (9:00 am) y posteriormente presidirá el Gran Encuentro de Oración por la Reconciliación Nacional en el Parque Las Malocas (4:00pm).</span> </div>
+                                      <span class="hover-tool__text">El jueves 12 de noviembre del 2015 en Santiago, Colombia empató con Chile 1-1, ese día con gol de James Rodríguez (67min.). La paridad fue importante para el combianado nacional porque los 'australes' se econtraban en su mejor momento, habían derrotado a Brasil y Perú.  </span> </div>
                                       </div>
                                   </div>
 
-                                  <div class="hint togmov1" style="top: 15%;left: 26%;">
-                                      <span class="plus"> 4 </span>
+                                  <div class="hint togmov1" style="top: 0%;left: 10%;">
+                                      <span class="plus">  </span>
                                       <span class="hint__dot"></span>
                                       <div class="tool tool--right-c">
                                       <div class="tip"></div>
-                                      <span>Cartagena</span>
+                                      <span style="position: relative; left: 26px;top: -5px;">Barranquilla</span>
                                       <div class="hover-tool">
                                       <div class="hover-tool__tip"></div>
-                                      <span class="hover-tool__text">El domingo 10 en <b>Cartagena</b>, el papa Francisco bendecirá la primera piedra de las Casas para las personas sin hogar en la Plaza San Francisco de Asís (10:30). Posteriormente (12:00) realizará la Oración del Angelus en el Santuario de San Pedro Claver y finalmente en Contecar celebrará la Santa Misa (4:30 pm).</span> </div>
+                                      <span class="hover-tool__text">El jueves 8 de octubre del 2015 en Barranquilla, ese día comenzó la Eliminatoria para el combinado nacional, en sus aspiraciones rumbo a la Copa del Mundo de Rusia 2018. Enfrentó a Perú y lo derrotó 2-0 con goles de Edwin Cardona (35min.) y Teófilo Gutiérrez (94min.).</span> </div>
                                       </div>
                                   </div>
                         </div>
@@ -226,47 +257,10 @@
         </div>
         <!--- /Agenda --->
 
-        <!--- Frases --->
-        <div class="frases" id="frases">
-            <div class="row">
-                <h1>FRASES</h1>
-                 <div class="large-12 columns">
-                 <div class="w60">
-                 <div class="leftc"></div>
-                  <div id="owl-demo" class="owl-carousel">
-                          <div class="item">Hay que despertar la palabra, porque cada palabra tiene dentro de sí una chispa de vida y este es el primer deber del comunicador </div>
-                          <div class="item">¿Que cómo lo estoy viviendo? Con gran dolor, con grandísimo dolor. Pero la verdad es la verdad y no se puede esconder</div>
-                          <div class="item">No se puede tolerar que el Mediterráneo se convierta en un gran cementerio</div>
-
-                          <div class="item"> La hipocresía es el lenguaje de los corruptos</div>
-
-                          <div class="item">No traigo oro ni plata, sino algo más valioso: Jesucristo</div>
-
-                          <div class="item">A veces yo me he sentido usado por la política del país</div>
-
-                          <div class="item">El dinero debe servir, no gobernar</div>
-
-                          <div class="item">Hay que vivir con alegría las pequeñas cosas de la vida cotidiana</div>
-
-                          <div class="item">El afán de poder y de tener no conoce límites</div>
-
-                          <div class="item">La familia atraviesa una crisis cultural profunda. El matrimonio tiende a ser visto como una mera forma de gratificación afectiva</div>
-
-                          <div class="item">¡Atención a la tentación de la envidia!</div>
-
-                          <div class="item">Los cristianos deberíamos acoger con afecto y respeto a los inmigrantes del Islam</div>
-
-                    </div>
-                    <div class="rightc"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--- /Frases --->
       <!-- galeria -->
     <galeria></galeria>
      <footer>
-         Copyright RCN Radio © | 2017 | Política de Protección de Datos Personales y Aviso de Privacidad
+         Copyright Antena2 © | 2017 | Política de Protección de Datos Personales y Aviso de Privacidad
            <redessociales></redessociales>
      </footer>
 
