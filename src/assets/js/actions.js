@@ -3,8 +3,6 @@ $(function () {
     var headroom = new Headroom(header);
     headroom.init();
   });
-
-
 $(document).ready(function() {
 // Radio en vivo
 var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
