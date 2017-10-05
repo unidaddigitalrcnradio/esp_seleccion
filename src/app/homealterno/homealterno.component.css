@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
 .alternativo {
     background-image: url(img/recorrido_background.jpg);
     background-size: 100%;
@@ -5,4 +6,48 @@
 .bg_black {
     background-color: rgba(0, 0, 0, 0.50);
     padding: 10px;
+}
+.bg_black img { } 
+.bg_black h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 34px;
+    text-align: center;
+    color: white;
+}
+.logo_antena{
+    width: 90px;
+    height: 70px;
+    background-image: url(img/log_antena.svg);
+    float: left;
+}
+.play {
+    background-image: url(img/play_icon.png);
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-top: -46px;
+}
+#line_logo {
+width: 100%;
+max-width: 900px;
+margin: 0px auto;
+display: block;
+float: none;
+padding-bottom: 20px;
+padding-top: 10px;
+}
+ @media only screen and (max-width: 768px) {
+    {
+    font-size: 20px;
+}
+     .logo_antena {
+    width: 45px;
+    height: 37px;
+     }
+     .bg_black h1 {
+             font-size: 21px;
+     }
+     .play {
+         display: none;
+     }
 }
