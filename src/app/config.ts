@@ -4,7 +4,8 @@ export class Config{
         public marcador:boolean,
         public col:string,
         public otro: string,
-        public listEstados:Array<string>
+        public listEstados:Array<string>,
+        public urlIframe?:string
     )
     {}
 }
