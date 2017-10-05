@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {NoticiasService} from '../noticias/noticias.service';
 import {ArrayNoticias} from '../noticias/arraynoticia';
 import {Noticia} from '../noticias/noticias';
+import { DomSanitizer } from '@angular/platform-browser';
 
 // Declaramos las variables para jQuery
 declare var jQuery:any;
@@ -26,14 +27,15 @@ public finBloque2;
 public finBloque3;
 public contNoticia = 'bloque2';
 
-constructor(private _notiServ: NoticiasService){
-    this._notiServ.getJson('http://www.antena2.com.co/v1/ws/noticias')
+constructor(private _notiServ: NoticiasService, private sanitizer: DomSanitizer){
+    this._notiServ.getJson('http://www.antena2.com.co/v1/ws/noticias?tid=40')
                                     .subscribe(
                                         result => {
                                                 this.jsonFm = result;
 
                                                 //Recorrer el arreglo
                                              this.arrayAntena2 = this._notiServ.crearObjNoti(this.jsonFm);
+                                             console.log(this.arrayAntena2);
                                              this.finBloque1 = this.add6(this.arrayAntena2, 1);
                                              this.finBloque2 = this.add6(this.arrayAntena2, 2);
                                              this.finBloque3 = this.add6(this.arrayAntena2, 3);
@@ -53,9 +55,7 @@ constructor(private _notiServ: NoticiasService){
         return this._notiServ.crearListaCompleta(_array1, _array2);
     }
 
-    traerimagenes(_arrayFinal){
-        return this._notiServ.addImagenJson(_arrayFinal);
-    }
+
     add6(_array,_bloque){
         let _array6:Noticia[] = [];
         switch (_bloque) {

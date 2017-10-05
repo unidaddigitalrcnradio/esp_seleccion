@@ -24,8 +24,6 @@ export class NoticiasService {
 
 		let ArregloNoticias:Noticia[] = [];
 
-		console.log(_json);
-
 		for (var i = 0; i < _json.length; i++) {
 
 			var id = _json[i].id;
@@ -35,7 +33,7 @@ export class NoticiasService {
 			titulo = this.arreglarStrings('&#8217;','"', titulo);
 			titulo = titulo.substr(0,71);
 
-			var teaser: string = _json[i].teaser;
+			var teaser: string = _json[i].subtitle;
 
 				teaser = teaser.trim();
 				teaser = this.arreglarStrings('<p>','', teaser);
@@ -43,13 +41,12 @@ export class NoticiasService {
 				teaser = this.arreglarStrings('<strong>','', teaser);
 				teaser = this.arreglarStrings('</strong>','', teaser);
 
-
-
-			var fecha:Date = _json[i].created;
+			let contenido = _json.teaser;
+			let fecha:Date = _json[i].created;
 			var rutaUrl = _json[i].path;
 			var logoMarca = "http://www.antena2.com.co/sites/default/files/imagenes/logoantena2_1372437936.jpg?1372437936";
 			var img = _json[i].image;
-			var contenido = "";
+
 
 			let n = new Noticia(id, titulo.substring(0,73) ,teaser.substring(0,78) ,fecha , rutaUrl,logoMarca , img ,contenido);
     		ArregloNoticias.push(n);

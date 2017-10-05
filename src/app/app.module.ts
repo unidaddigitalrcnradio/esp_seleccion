@@ -12,6 +12,7 @@ import { RedesComponent } from './redessociales/redessociales.component';
 
 //Servicios
 import { LeerArchivoService } from "./leerconfig.service";
+import { NoticiasService } from "./noticias/noticias.service";
 
 // PIPES
 import { DomseguroPipe } from './pipes/domseguro.pipe';
@@ -35,7 +36,8 @@ import { HomealternoComponent } from './homealterno/homealterno.component';
   ],
   providers: [
     {provide:LOCALE_ID, useValue:"es"},
-    LeerArchivoService
+    LeerArchivoService,
+    NoticiasService
   ],
   bootstrap: [AppComponent]
 })
