@@ -1,0 +1,8 @@
+.alternativo {
+    background-image: url(img/recorrido_background.jpg);
+    background-size: 100%;
+    }
+.bg_black {
+    background-color: rgba(0, 0, 0, 0.50);
+    padding: 10px;
+}
