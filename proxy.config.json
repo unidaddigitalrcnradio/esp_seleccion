@@ -1,6 +1,6 @@
 {
-    "www.lafm.com.co/*":{
-        "target":"elpapaencolombia.co/",
+    "http://www.antena2.com.co/*":{
+        "target":"http://colombiaenrusia.antena2.com.co//",
         "secure":false,
         "logLevel": "debug"
     }
