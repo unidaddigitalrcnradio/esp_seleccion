@@ -15,6 +15,7 @@ import { LeerArchivoService } from "./leerconfig.service";
 
 // PIPES
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { HomeppalComponent } from './homeppal/homeppal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
     GaleriaComponent,
     RelojComponent,
     RedesComponent,
-    DomseguroPipe
+    DomseguroPipe,
+    HomeppalComponent
     ],
   imports: [
     BrowserModule,
