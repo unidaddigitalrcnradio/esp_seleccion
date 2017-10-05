@@ -1,5 +1,7 @@
 {
-    "estado":"normal",
-    "urlConti":"kJQP7kiw5Fk",
-    "array":["live","normal","contingencia"]
+    "estadoactivo":"ppal",
+    "marcador":false,
+    "col":1,
+    "otro":1,
+    "listaestados":["prev","ppal","pendiente"]
 }

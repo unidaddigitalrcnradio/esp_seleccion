@@ -1,5 +1,10 @@
 export class Config{
-    estado:string;
-    urlCont:string;
-    tipos:string[];
+    constructor(
+        public estadoactivo:string,
+        public marcador:boolean,
+        public col:string,
+        public otro: string,
+        public listEstados:Array<string>
+    )
+    {}
 }

@@ -1,1 +1,8 @@
-<app-homeppal></app-homeppal>
+<div *ngIf="activo">
+    <app-homeppal></app-homeppal>
+</div>
+
+<div *ngIf="!activo">
+    <app-homealterno></app-homealterno>
+</div>
+

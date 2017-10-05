@@ -6,13 +6,12 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LeerArchivoService {
-    _url = "../../assets/config.json";
-    constructor(private _http: Http) { 
+    constructor(private _http: Http) {
+
     }
 
-    traerArchivo(){
-        let ObjJson = this._http.get(this._url).map(res => res.json());
-		return ObjJson;
-    }
-    
+    traerArchivo(_url){
+        return this._http.get(_url).map(res => res.json());
+	 }
+
 }
