@@ -121,12 +121,12 @@ position: relative;
 
 .cp-controls .cp-play {
 	/* background:url("controls.jpg") 0 0 no-repeat; */
-    background-image: url(btn_play.png);
+    background-image: url(btn_play.svg);
     background-repeat: no-repeat;
 }
 
 .cp-controls .cp-play:hover {
-    background-image: url(btn_pause.png);
+    background-image: url(hover_btn_play.svg);
     background-repeat: no-repeat;
 }
 
