@@ -1,0 +1,71 @@
+<div class="main-container">
+    <h4>Formularios <small>DATA</small></h4>
+    <hr>
+
+    <form [formGroup]="forma">
+    <div>
+      <h2>Escoja el estado en que quiere que presente la pagina</h2>
+      <label>
+        Esta activando
+        <input type="text"  formControlName="estado" disabled>
+      </label>
+      {{listados}}
+      <label *ngFor="let s of listados">
+        <h6>{{s}}</h6>
+        <!-- <div class="switch">
+          <input class="switch-input" [id]="data" type="radio" checked name="GpEstados">
+            <label class="switch-paddle" [for]="data">
+              <span class="show-for-sr">Bulbasaur</span>
+            </label>
+        </div> -->
+      </label>
+    </div>
+
+    <div formGroupName="video">
+      <h4>Seleccione el tipo de video a publicar</h4>
+      <div >
+          <label>
+              Activar YouTube
+              <div class="switch">
+                <input class="switch-input" id="radioYuo" type="radio" checked name="testGroup">
+                  <label class="switch-paddle" for="radioYuo">
+                    <span class="show-for-sr">Bulbasaur</span>
+                  </label>
+              </div>
+          </label>
+          <div formGroupName="youtube" >
+              <label>
+                  Codigo Youtube
+                  <input type="text" formControlName="codigo" disabled>
+              </label>
+          </div>
+      </div>
+
+      <div >
+          <label>
+              Activar LiveStream
+                <div class="switch">
+                    <input class="switch-input" id="radioLive" type="radio" checked name="testGroup">
+                     <label class="switch-paddle" for="radioLive">
+
+                      <span class="show-for-sr">Bulbasaur</span>
+                    </label>
+                  </div>
+            </label>
+            <div formGroupName="livestream">
+                <label>
+                    id Codigo LiveStream
+                    <input type="text" formControlName='id' class="form-control" >
+                </label>
+                <label>
+                    src Codigo LiveStream
+                    <input type="text" formControlName="src" class="form-control">
+                </label>
+            </div>
+      </div>
+
+
+    </div>
+
+    </form>
+</div>

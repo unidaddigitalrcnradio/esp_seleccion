@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeerArchivoService } from "../leerconfig.service";
-import { Config } from "../config";
+import { LeerArchivoService } from "../../leerconfig.service";
+import { Config } from "../../config";
 
 @Component({
   selector: 'app-homealterno',

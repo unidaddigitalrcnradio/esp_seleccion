@@ -1,7 +1,0 @@
-{
-    "http://www.antena2.com.co/*":{
-        "target":"http://colombiaenrusia.antena2.com.co//",
-        "secure":false,
-        "logLevel": "debug"
-    }
-}
