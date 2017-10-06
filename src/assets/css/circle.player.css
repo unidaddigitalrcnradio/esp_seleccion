@@ -131,12 +131,12 @@ position: relative;
 }
 
 .cp-controls .cp-pause {
-    background-image: url(btn_pause.png);
+    background-image: url(hover_btn_play.svg);
     background-repeat: no-repeat;
 }
 
 .cp-controls .cp-pause:hover {
-    background-image: url(btn_play.png);
+    background-image: url(hover_btn_play.svg);
     background-repeat: no-repeat;
 }
 
