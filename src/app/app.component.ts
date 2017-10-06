@@ -9,11 +9,12 @@ import { LeerArchivoService } from "./leerconfig.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activo:boolean = false;
+  activo:boolean;
 
   objConfig:Config;
 
   ruta ="assets/config.json";
+
   constructor(public _leerArchivo:LeerArchivoService){
 
     this._leerArchivo.traerArchivo(this.ruta).subscribe(
@@ -38,6 +39,8 @@ export class AppComponent {
   Reglas(obj:Config){
     if(obj.estadoactivo == "ppal"){
       this.activo = true;
+    }else{
+      this.activo = false;
     }
   }
 
