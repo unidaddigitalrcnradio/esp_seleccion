@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from "@angular/forms";
 import { Config } from "../config";
 
 @Component({
@@ -10,59 +10,88 @@ import { Config } from "../config";
 export class ConfigComponent implements OnInit {
 
   forma:FormGroup;
+  arr: FormArray;
 
-  radioGpEstados;
-  listados = ["prev","ppal", "otros", "mas"];
+  radioGpEstados ;
 
   config:Object = {
-    estado:"",
-    listaEstados:["prev","ppal"],
-    videoActivo:"",
+    estado:"otros",
+    listaEstados:["prev","ppal", "otros", "mas"],
     video:{
       youtube:{
-        codigo:""
+        codigo:"ASDFASDFAS",
+        activo:true
       },
       livestream:{
-        id:"",
-        src:""
+        id:"ASDF",
+        src:"ASDFASDF",
+        activo:false
       }
     },
-    actvModVideo:"",
-    actvModEnVivo:"",
-    actvModDetalle:"",
-    actvModNoticas:"",
-    actvModDetalle2:"",
-    actvModGaleria:""
+    actvModVideo:false,
+    actvModDetalle:false,
+    actvModNoticas:true,
+    actvModDetalle2:false,
+    actvModGaleria:true
   }
 
-  constructor() {
+  constructor( private _fb: FormBuilder) {
 
-    this.forma = new FormGroup({
-      'estado': new FormControl(),
-      'videoActivo': new FormControl(),
-      'video': new FormGroup({
-        'youtube': new FormGroup({
-          'codigo': new FormControl()
-        }),
-        'livestream' : new FormControl({
-          'id': new FormControl(),
-          'src': new FormControl()
-        }),
-      }),
-      'actvModVideo': new FormControl(),
-      'actvModEnVivo': new FormControl(),
-      'actvModDetalle': new FormControl(),
-      'actvModNoticas': new FormControl(),
-      'actvModDetalle2': new FormControl(),
-      'actvModGaleria': new FormControl()
+    this.crearForm();
 
-    });
+       //Esto escucha solo un objeto del form, ejemplo username
+       this.forma.controls.video.valueChanges.subscribe(
+        data=>{
+          data['youtube']['activo'].subscribe(res=>{
+            console.log(res);
+          });
+        });
 
-    //console.log(this.forma);
-    this.forma.reset(this.config);
+    console.log(this.forma);
+
+
    }
 
   ngOnInit() {
+
   }
+
+  crearForm(){
+    this.arr = this._fb.array([]);
+
+        for (let k of this.config['listaEstados']) {
+          this.arr.push(this._fb.control(k));
+        }
+
+        this.forma = this._fb.group({
+          estado: this.config['estado'],
+          listaEstados:this.arr,
+          video: this._fb.group({
+            youtube: this._fb.group({
+              codigo:this.config['video']['youtube']['codigo'],
+              activo:this.config['video']['youtube']['activo']
+            }),
+            livestream: this._fb.group({
+              id: this.config['video']['livestream']['id'],
+              src: this.config['video']['livestream']['src'],
+              activo:this.config['video']['livestream']['activo']
+            }),
+          }),
+          actvModVideo: this.config['actvModVideo'],
+          actvModDetalle: this.config['actvModDetalle'],
+          actvModNoticas: this.config['actvModNoticas'],
+          actvModDetalle2: this.config['actvModDetalle2'],
+          actvModGaleria: this.config['actvModGaleria']
+        });
+  }
+
+  cambioCar(data){
+    this.radioGpEstados = data;
+  }
+
+
+
+
+
 
 }
