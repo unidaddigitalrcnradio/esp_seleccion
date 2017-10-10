@@ -24,6 +24,7 @@ import { HomeppalComponent } from './home/homeppal/homeppal.component';
 import { HomealternoComponent } from './home/homealterno/homealterno.component';
 import { ConfigComponent } from './config/config.component';
 import { HomeComponent } from './home/home.component';
+import { FirebaseService } from "./service/firebase.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HomeComponent } from './home/home.component';
   providers: [
     {provide:LOCALE_ID, useValue:"es"},
     LeerArchivoService,
-    NoticiasService
+    NoticiasService,
+    FirebaseService
   ],
   bootstrap: [AppComponent]
 })
