@@ -1,16 +1,32 @@
 <div class="alternativo">
 
-<div class="bg_black">
-    <div class="row">
-        <div class="large-12 small-12  columns" id="line_logo">
-        <a href="http://www.rcnmundo.com/antena2?_ga=2.152896382.634518292.1507125686-1138419903.1504037555/" target="_blank">
-         <div class="logo_antena"></div>    
-            <h1>ESCUCHE EN VIVO COLOMBIA VS PARAGUAY</h1>
-        <div class="play"></div>   
-        </a> 
-        </div>  
-    </div>
-</div>
+<div class="bg_black" id="h135">
+          <span class="logo_b"></span>
+
+      <!----- Player Radio en vivo ------>
+      <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
+      <div id="jquery_jplayer_1" class="cp-jplayer"></div>
+
+      <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
+
+      <div id="cp_container_1" class="cp-container">
+          <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+              <div class="cp-buffer-1"></div>
+              <div class="cp-buffer-2"></div>
+          </div>
+          <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+              <div class="cp-progress-1"></div>
+              <div class="cp-progress-2"></div>
+          </div>
+          <div class="cp-circle-control"></div>
+          <ul class="cp-controls">
+              <li><a class="cp-play" tabindex="1">play</a></li>
+              <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+          </ul>
+      </div>
+
+
+       </div>
    
    
     <div class="row">
@@ -21,3 +37,71 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+<style type="text/css">
+.cp-controls .cp-play {
+background-image: url(../../assets/img/escuche.png);
+width: 774px;
+height:105px;
+margin: 0px auto;
+display: block;
+text-align: center;
+background-color: transparent;
+transition:all 0.3s;
+}
+.cp-buffer-holder {
+max-width: 774px;
+width: 100%;
+}
+.cp-buffer-holder, .cp-progress-holder, .cp-circle-control {
+background-color: transparent;
+}
+#h135{
+height: 145px;
+}
+#marcador {
+margin-top: 20px;
+}
+
+.cp-controls .cp-pause {
+background-image: url(../../assets/img/escuche_hover.png);
+width: 774px;
+height:105px;
+margin: 0px auto;
+display: block;
+text-align: center;
+transition:all 0.3s;
+}
+.cp-controls .cp-play:hover {
+background-image: url(../../assets/img/escuche_hover.png);
+}
+#h135 .cp-circle-control {
+background-color: transparent;
+transition:all 0.3s;
+}
+.cp-circle-control {
+
+}
+#h135 .cp-container {
+width: 100%;
+max-width: 774px;
+height: 105px;
+margin: 0px auto;
+display: block;
+margin-top: -21px;
+
+}
+    
+@media only screen and (max-width: 860px) { 
+    .cp-controls {
+        width: 300px;
+        background-size: 100%;
+    }
+    
+}
+</style>
