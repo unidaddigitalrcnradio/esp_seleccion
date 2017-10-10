@@ -39,17 +39,7 @@ export class ConfigComponent implements OnInit {
 
     this.crearForm();
 
-       //Esto escucha solo un objeto del form, ejemplo username
-       this.forma.controls.video.valueChanges.subscribe(
-        data=>{
-          data['youtube']['activo'].subscribe(res=>{
-            console.log(res);
-          });
-        });
-
     console.log(this.forma);
-
-
    }
 
   ngOnInit() {
@@ -83,6 +73,7 @@ export class ConfigComponent implements OnInit {
           actvModDetalle2: this.config['actvModDetalle2'],
           actvModGaleria: this.config['actvModGaleria']
         });
+
   }
 
   cambioCar(data){

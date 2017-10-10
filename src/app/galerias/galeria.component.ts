@@ -30,7 +30,7 @@ public objGaleria:Galeria[];
 
 constructor(private _galServ: GaleriaService){
 
-        this._galServ.getJson('http://www.antena2.com.co/v1/ws/galeria?nid=113846')
+        this._galServ.getJson('http://www.antena2.com.co/v1/ws/galeria?nid=114889')
                                     .subscribe(
                                         result => {
                                                 this.galeriaJson = result;
