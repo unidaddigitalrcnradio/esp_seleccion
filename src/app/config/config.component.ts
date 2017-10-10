@@ -80,7 +80,9 @@ export class ConfigComponent implements OnInit {
     this.radioGpEstados = data;
   }
 
-
+guardarCambios(){
+  console.log();
+}
 
 
 

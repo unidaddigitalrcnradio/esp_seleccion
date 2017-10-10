@@ -1,8 +1,8 @@
-<div class="main-container">
+<!-- <div class="main-container">
     <h4>Formularios <small>DATA</small></h4>
 
 
-    <form [formGroup]="forma" (ngSubmit)="guardarCambios()" >
+    <form formGroup="forma" (ngSubmit)="guardarCambios()" >
 
         <div>
             <h2>Escoja el estado en que quiere que presente la pagina</h2>
@@ -58,7 +58,7 @@
         <label>
             <h6>Ver modulo Video</h6>
             <div class="switch">
-                <input class="switch-input" id="exampleSwitch" type="checkbox" [checked]="forma.controls.actvModVideo.value" >
+                <input class="switch-input" id="exampleSwitch" type="checkbox" [checked]="forma.controls.actvModVideo.value" formControlName="actvModVideo">
                 <label class="switch-paddle" for="exampleSwitch">
                   <span class="show-for-sr"></span>
                 </label>
@@ -69,7 +69,7 @@
         <label>
             <h6>Ver modulo Detalle</h6>
             <div class="switch">
-              <input class="switch-input" id="actvModDetalle" type="checkbox" [checked]="forma.controls.config.actvModDetalle.value">
+              <input class="switch-input" id="actvModDetalle" type="checkbox" [checked]="forma.controls.config.actvModDetalle.value" formControlName="actvModDetalle">
                 <label class="switch-paddle" for="actvModDetalle">
                   <span class="show-for-sr">Bulbasaur</span>
                 </label>
@@ -80,7 +80,7 @@
         <label>
             <h6>Ver modulo Noticias</h6>
             <div class="switch">
-              <input class="switch-input" id="actvModNoticas" type="checkbox" [checked]="forma.controls.actvModNoticas.value" >
+              <input class="switch-input" id="actvModNoticas" type="checkbox" [checked]="forma.controls.actvModNoticas.value" formControlName="actvModNoticas">
                 <label class="switch-paddle" for="actvModNoticas">
                   <span class="show-for-sr">Bulbasaur</span>
                 </label>
@@ -91,7 +91,7 @@
         <label>
             <h6>Ver modulo Detalle2</h6>
             <div class="switch">
-              <input class="switch-input" id="actvModDetalle2" type="checkbox" [checked]="forma.controls.actvModDetalle2.value" >
+              <input class="switch-input" id="actvModDetalle2" type="checkbox" [checked]="forma.controls.actvModDetalle2.value" formControlName="actvModDetalle2">
                 <label class="switch-paddle" for="actvModDetalle2">
                   <span class="show-for-sr">Bulbasaur</span>
                 </label>
@@ -102,7 +102,7 @@
         <label>
             <h6>Ver modulo Galeria</h6>
             <div class="switch">
-              <input class="switch-input" id="actvModGaleria" type="checkbox" [checked]="config.actvModGaleria.value" name="actvModGaleria">
+              <input class="switch-input" id="actvModGaleria" type="checkbox" [checked]="config.actvModGaleria.value" name="actvModGaleria" formControlName="actvModGaleria">
                 <label class="switch-paddle" for="actvModGaleria">
                   <span class="show-for-sr">Bulbasaur</span>
                 </label>
@@ -114,4 +114,4 @@
         Guardar
       </button>
     </form>
-</div>
+</div> -->
