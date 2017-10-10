@@ -18,18 +18,18 @@ export class FirebaseService {
     return this._http.get(url).map(res=>res.json());
   }
 
-  actulizarHeroe(heroe:Heroe, key$:string){
-    let body = JSON.stringify(heroe);
-    let headers = new Headers({
-      'Content-Type':'application/json'
-    });
+  // actulizarHeroe(heroe:Heroe, key$:string){
+  //   let body = JSON.stringify(heroe);
+  //   let headers = new Headers({
+  //     'Content-Type':'application/json'
+  //   });
 
-    let url = `${ this.heroeUrl }/${key$}.json`;
+  //   let url = `${ this.heroeUrl }/${key$}.json`;
 
-    return this._http.put(url, body, {headers}).map( res =>{
-      console.log(res.json());
-      return res.json();
-    });
-  }
+  //   return this._http.put(url, body, {headers}).map( res =>{
+  //     console.log(res.json());
+  //     return res.json();
+  //   });
+  // }
 
 }
