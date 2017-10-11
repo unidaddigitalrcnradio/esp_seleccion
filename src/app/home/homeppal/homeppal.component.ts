@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from "../../service/firebase.service";
+import { Configseg } from "../../interfaces/configseg";
+
+
 import { LeerArchivoService } from "../../leerconfig.service";
 import { Config } from "../../config";
 
@@ -12,37 +16,20 @@ declare var $:any;
   styleUrls: ['./homeppal.component.css']
 })
 export class HomeppalComponent implements OnInit {
-  urlContingenci;
-  ruta ="../assets/config.json";
-  objConfig:Config;
+  public objConfig:Configseg;
 
 
-  constructor(public _leerArchivo:LeerArchivoService) {
+  constructor(public _leerArchivo:LeerArchivoService, private _fireb:FirebaseService) {
 
-    this._leerArchivo.traerArchivo(this.ruta).subscribe(
-      res=> {
-        let data = res;
+    this._fireb.getConfig().subscribe(res=>{
+      this.objConfig = _fireb.crearObjConfig(res);
 
-        let estado:string = data.estadoactivo;
-        let marcador:boolean = data.marcador;
-        let mCol:string = data.col;
-        let mOtro:string = data.otro;
-        let lista:Array<string> = data.listaestados;
-        let iframe:string = data.urlyoutube;
+    });
 
-        this.objConfig =  new Config(estado, marcador,mCol,mOtro,lista, iframe);
-
-        this.Reglas(this.objConfig);
-
-      }
-    );
    }
 
   ngOnInit() {
   }
 
-  Reglas(obj:Config){
-    this.urlContingenci = obj.urlIframe;
-  }
 
 }

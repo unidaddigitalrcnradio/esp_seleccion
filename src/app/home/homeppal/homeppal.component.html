@@ -31,19 +31,20 @@
     </div>
     </header>
 
-<div class="bg-black" >
+<div class="bg-black" *ngIf="objConfig.video.youtube.estadoy" >
       <div class="row" >
               <div class="large-12 small-12  columns">
                   <div class="destacada">
-
-                      <iframe style="width: 100%; height: 500px;"  width="" height="" [src]="urlContingenci | domseguro:'https://www.youtube.com/embed/' " frameborder="0" allowfullscreen></iframe>
+                    <!-- <iframe style="width: 100%; height: 500px;"  width="" height=""  src="https://www.youtube.com/embed/zq77o1KdXCU" frameborder="0" allowfullscreen></iframe> -->
+                    <!-- <iframe style="width: 100%; height: 500px;"  width="" height="" src="https://www.youtube.com/embed/q1GlZWLK3N0" frameborder="0" allowfullscreen></iframe> -->
+                   <iframe style="width: 100%; height: 500px;"  width="" height="" [src]="objConfig.video.youtube.codigo | domseguro:'https://www.youtube.com/embed/' " frameborder="0" allowfullscreen></iframe>
                   </div>
                </div>
       </div>
 </div>
   <!-- streaming - contador  -->
 
-        <!--- Radio --->
+         <!-- Radio  -->
        <div class="radio">
           <span class="logo_b"></span>
 
@@ -53,7 +54,7 @@
 
       <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
 
-      <div id="cp_container_1" class="cp-container">
+      <div id="cp_container_1" class="cp-container" *ngIf="objConfig.actvModDetalle">
           <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
               <div class="cp-buffer-1"></div>
               <div class="cp-buffer-2"></div>
@@ -73,7 +74,7 @@
        </div>
 
 
-     <div class="frases1" id="frases1">
+     <div class="frases1" id="frases1" *ngIf="objConfig.actvModDetalle">
         <div class="frases" id="frases">
             <div class="row">
                 <div class="large-2 small-12 columns"></div>
@@ -85,8 +86,8 @@
             </div>
         </div>
           </div>
-        <!--- / --->
-      <div id="ultima">
+
+      <div id="ultima" *ngIf="objConfig.actvModNoticias">
           <div class="news">
               <div class="row">
                  <div class="large-12  small-12 columns">
@@ -111,8 +112,9 @@
             </div>
         </div> -->
         <!--- /perfil --->
-        <!--- Agenda --->
-        <div class="agenda" id="agenda">
+
+        <!-- Agenda  -->
+        <div class="agenda" id="agenda" *ngIf="objConfig.actvModDetalle2">
             <div class="row">
                <!--  <h1>AGENDA</h1> -->
                 <div class="large-6 small-12  columns">
@@ -200,11 +202,17 @@
         <!--- /Agenda --->
 
       <!-- galeria -->
-    <galeria></galeria>
+      <div *ngIf="objConfig.actvModGaleria">
+        <galeria></galeria>
+      </div>
+
      <footer>
          Copyright Antena2 © | 2017 | Política de Protección de Datos Personales y Aviso de Privacidad
            <redessociales></redessociales>
      </footer>
+     <pre>
+         {{ objConfig.video.youtube.codigo }}
+     </pre>
 
 
 

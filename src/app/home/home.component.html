@@ -1,7 +1,12 @@
-<div *ngIf="activo">
+<div *ngIf="config.estado === 'ppal'">
     <app-homeppal></app-homeppal>
 </div>
 
-<div *ngIf="!activo">
+<div *ngIf="config.estado === 'prev'">
     <app-homealterno></app-homealterno>
 </div>
+
+<pre>
+    {{config|json}}
+</pre>
+

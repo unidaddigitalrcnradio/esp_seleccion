@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Config } from "../config";
-import { LeerArchivoService } from "../leerconfig.service";
+import { Configseg } from "../interfaces/configseg";
+import { FirebaseService } from "../service/firebase.service";
 
 @Component({
   selector: 'app-home',
@@ -8,37 +8,19 @@ import { LeerArchivoService } from "../leerconfig.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  activo:boolean;
-  objConfig:Config;
-  ruta ="assets/config.json";
 
-  constructor(public _leerArchivo:LeerArchivoService) {
+  public config:Configseg;
 
-    this._leerArchivo.traerArchivo(this.ruta).subscribe(
-      res=> {
-        let data = res;
 
-        let estado:string = data.estadoactivo;
-        let marcador:boolean = data.marcador;
-        let mCol:string = data.col;
-        let mOtro:string = data.otro;
-        let lista:Array<string> = data.listaestados;
+  constructor( private _fireb:FirebaseService) {
 
-        this.objConfig =  new Config(estado, marcador,mCol,mOtro,lista);
+    this._fireb.getConfig().subscribe(res=>{
+      this.config = _fireb.crearObjConfig(res);
 
-        this.Reglas(this.objConfig);
+    });
 
-      }
-    );
    }
 
-   Reglas(obj:Config){
-    if(obj.estadoactivo == "ppal"){
-      this.activo = true;
-    }else{
-      this.activo = false;
-    }
-  }
 
   ngOnInit() {
   }

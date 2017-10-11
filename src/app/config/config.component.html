@@ -1,46 +1,201 @@
-<!-- <div class="main-container">
-    <h4>Formularios <small>DATA</small></h4>
+
+<div class="main-container" *ngIf="crearNuevo">
+        <a class="button success" (click)="crearNuevoForm()">Crear Nuevo</a>
+
+                <form [formGroup]="forma" (ngSubmit)="guardarNuevoForm()" *ngIf="activoNuevoform">
+
+                            <div class="form-group row">
+                                    <div >
+                                        <label>
+                                            Vista activa actualmente
+                                            <input type="text" formControlName="estado">
+                                        </label>
+                                    </div>
 
 
-    <form formGroup="forma" (ngSubmit)="guardarCambios()" >
+                                <h3>Lista de estados posibles</h3>
 
-        <div>
-            <h2>Escoja el estado en que quiere que presente la pagina</h2>
-            <label>
-                Esta activando
-                <input type="text" disabled formControlName="estado" name="estado" >
-            </label>
-        </div>
-        <h3>Cambiado por <strong>{{ radioGpEstados }}</strong> </h3>
+                                <div formArrayName="listaEstados" >
+                                    <div>
+                                            <input *ngFor="let p of forma.controls['listaEstados'].controls; let i=index"
+                                            [formControlName]="i"
+                                            type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <button (click)="agregarEstados()"
+                                        type="button" class="alert button">Nuevo</button>
+
+
+
+                                <div formGroupName="video">
+                                    <h4>Seleccione el tipo de video a publicar</h4>
+
+                                    <div formGroupName="youtube">
+                                        <label>
+                                        <h6>Activar YouTube</h6>
+                                            <div class="switch">
+                                                <input class="switch-input" id="estadoy" type="checkbox" name="video" [checked]="forma.value.video.youtube.estadoy" formControlName="estadoy">
+                                                <label class="switch-paddle" for="estadoy">
+                                                    <span class="show-for-sr">Bulbasaur</span>
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div *ngIf="activoYou || forma.value.video.youtube.estadoy">
+                                            <label>
+                                                Codigo Youtube
+                                                <input type="text" formControlName="codigo">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div formGroupName="livestream">
+                                        <label>
+                                            <h6>Activar LiveStream</h6>
+                                                <div class="switch">
+                                                    <input class="switch-input" id="estadol" type="checkbox" name="video" [checked]="forma.value.video.livestream.estadol" formControlName="estadol">
+                                                    <label class="switch-paddle" for="estadol">
+                                                        <span class="show-for-sr">Bulbasaur</span>
+                                                    </label>
+                                                </div>
+                                        </label>
+
+                                        <div *ngIf="activoLive || forma.value.video.livestream.estadol">
+                                            <label>
+                                                ID Codigo LiveStream
+                                                <input type="text" formControlName='id' class="form-control" >
+                                            </label>
+                                            <label>
+                                                SRC Codigo LiveStream
+                                                <input type="text" formControlName="src" class="form-control">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div>
+                                    <label>
+                                        <h6>Ver modulo Video</h6>
+                                        <div class="switch">
+                                            <input class="switch-input" id="exampleSwitch" type="checkbox" [checked]="forma.value.actvModVideo" formControlName="actvModVideo">
+                                            <label class="switch-paddle" for="exampleSwitch">
+                                            <span class="show-for-sr"></span>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <h6>Ver modulo Detalle</h6>
+                                        <div class="switch">
+                                        <input class="switch-input" id="actvModDetalle" type="checkbox" [checked]="forma.value.actvModDetalle" formControlName="actvModDetalle">
+                                            <label class="switch-paddle" for="actvModDetalle">
+                                            <span class="show-for-sr">Bulbasaur</span>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <h6>Ver modulo Noticias</h6>
+                                        <div class="switch">
+                                        <input class="switch-input" id="actvModNoticas" type="checkbox" [checked]="forma.value.actvModNoticias" formControlName="actvModNoticias">
+                                            <label class="switch-paddle" for="actvModNoticas">
+                                            <span class="show-for-sr">Bulbasaur</span>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <label>
+                                        <h6>Ver modulo Detalle2</h6>
+                                        <div class="switch">
+                                        <input class="switch-input" id="actvModDetalle2" type="checkbox" [checked]="forma.value.actvModDetalle2" formControlName="actvModDetalle2">
+                                            <label class="switch-paddle" for="actvModDetalle2">
+                                            <span class="show-for-sr">Bulbasaur</span>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <h6>Ver modulo Galeria</h6>
+                                        <div class="switch">
+                                        <input class="switch-input" id="actvModGaleria" type="checkbox" [checked]="config.actvModGaleria.value" name="actvModGaleria" formControlName="actvModGaleria">
+                                            <label class="switch-paddle" for="actvModGaleria">
+                                            <span class="show-for-sr">Bulbasaur</span>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="success button">
+                                    Guardar
+                                </button>
+
+                            </div>
+                            </form>
+
+</div>
+
+<div class="main-container" *ngIf="!crearNuevo">
+    <h4>Modulo Configuración <small>PAGINA SELECCIÓN</small></h4>
+
+    <form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+
+    <div class="form-group row">
+            <div >
+                <label formControlName="estado">
+                    <h2>Actualmente tiene activado <strong>{{forma.value.estado}}</strong> </h2>
+                </label>
+            </div>
+
+
+        <h3>Cambiar por:  <strong>{{ radioGpEstados }}</strong> </h3>
 
         <div formArrayName="listaEstados" >
-            <div *ngFor="let data of forma.controls.listaEstados.value">
-                <input type="radio" name="grupo" [value]="data" (change)="cambioCar(data)" [checked]="data === estado" >{{ data }} <br>
+            <div *ngFor="let data of forma.value.listaEstados; let i=index">
+                <input type="radio"  name="grupo" [value]="i" (change)="cambioCar(data)" [checked]="data === forma.value.estado" >
+                {{ data }}
             </div>
         </div>
 
-    <div formGroupName="video">
-        <h4>Seleccione el tipo de video a publicar</h4>
+        <div formGroupName="video">
+            <h4>Seleccione el tipo de video a publicar</h4>
 
-        <div formGroupName="youtube">
-            <label>
-                Activar YouTube
-                <input type="radio" name="equipo" formControlName="activo" [checked]="form.controls.video.value.youtube['activo']">
-            </label>
-            <div >
+            <div formGroupName="youtube">
                 <label>
-                    Codigo Youtube
-                    <input type="text" formControlName="codigo">
+                <h6>Activar YouTube</h6>
+                    <div class="switch">
+                        <input class="switch-input" id="estadoy" type="checkbox" name="video" [checked]="forma.value.video.youtube.estadoy" formControlName="estadoy">
+                        <label class="switch-paddle" for="estadoy">
+                            <span class="show-for-sr">Bulbasaur</span>
+                        </label>
+                    </div>
                 </label>
+                <div *ngIf="activoYou || forma.value.video.youtube.estadoy">
+                    <label>
+                        Codigo Youtube
+                        <input type="text" formControlName="codigo">
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div formGroupName="livestream">
-            <label>
-                Activar LiveStream
-                <input type="radio" name="equipo" formControlName="activo" [checked]="activo.value">
+            <div formGroupName="livestream">
+                <label>
+                    <h6>Activar LiveStream</h6>
+                        <div class="switch">
+                            <input class="switch-input" id="estadol" type="checkbox" name="video" [checked]="forma.value.video.livestream.estadol" formControlName="estadol">
+                            <label class="switch-paddle" for="estadol">
+                                <span class="show-for-sr">Bulbasaur</span>
+                            </label>
+                        </div>
                 </label>
-                <div>
+
+                <div *ngIf="activoLive || forma.value.video.livestream.estadol">
                     <label>
                         ID Codigo LiveStream
                         <input type="text" formControlName='id' class="form-control" >
@@ -50,68 +205,71 @@
                         <input type="text" formControlName="src" class="form-control">
                     </label>
                 </div>
+            </div>
         </div>
-    </div>
 
 
-    <div>
-        <label>
-            <h6>Ver modulo Video</h6>
-            <div class="switch">
-                <input class="switch-input" id="exampleSwitch" type="checkbox" [checked]="forma.controls.actvModVideo.value" formControlName="actvModVideo">
-                <label class="switch-paddle" for="exampleSwitch">
-                  <span class="show-for-sr"></span>
-                </label>
-              </div>
-        </label>
-    </div>
-    <div>
-        <label>
-            <h6>Ver modulo Detalle</h6>
-            <div class="switch">
-              <input class="switch-input" id="actvModDetalle" type="checkbox" [checked]="forma.controls.config.actvModDetalle.value" formControlName="actvModDetalle">
-                <label class="switch-paddle" for="actvModDetalle">
-                  <span class="show-for-sr">Bulbasaur</span>
-                </label>
-            </div>
-        </label>
-    </div>
-    <div>
-        <label>
-            <h6>Ver modulo Noticias</h6>
-            <div class="switch">
-              <input class="switch-input" id="actvModNoticas" type="checkbox" [checked]="forma.controls.actvModNoticas.value" formControlName="actvModNoticas">
-                <label class="switch-paddle" for="actvModNoticas">
-                  <span class="show-for-sr">Bulbasaur</span>
-                </label>
-            </div>
-        </label>
-    </div>
-    <div>
-        <label>
-            <h6>Ver modulo Detalle2</h6>
-            <div class="switch">
-              <input class="switch-input" id="actvModDetalle2" type="checkbox" [checked]="forma.controls.actvModDetalle2.value" formControlName="actvModDetalle2">
-                <label class="switch-paddle" for="actvModDetalle2">
-                  <span class="show-for-sr">Bulbasaur</span>
-                </label>
-            </div>
-        </label>
-    </div>
-    <div>
-        <label>
-            <h6>Ver modulo Galeria</h6>
-            <div class="switch">
-              <input class="switch-input" id="actvModGaleria" type="checkbox" [checked]="config.actvModGaleria.value" name="actvModGaleria" formControlName="actvModGaleria">
-                <label class="switch-paddle" for="actvModGaleria">
-                  <span class="show-for-sr">Bulbasaur</span>
-                </label>
-            </div>
-        </label>
-    </div>
+        <div>
+            <label>
+                <h6>Ver modulo Video</h6>
+                <div class="switch">
+                    <input class="switch-input" id="exampleSwitch" type="checkbox" [checked]="forma.value.actvModVideo" formControlName="actvModVideo">
+                    <label class="switch-paddle" for="exampleSwitch">
+                    <span class="show-for-sr"></span>
+                    </label>
+                </div>
+            </label>
+        </div>
+        <div>
+            <label>
+                <h6>Ver modulo Detalle</h6>
+                <div class="switch">
+                <input class="switch-input" id="actvModDetalle" type="checkbox" [checked]="forma.value.actvModDetalle" formControlName="actvModDetalle">
+                    <label class="switch-paddle" for="actvModDetalle">
+                    <span class="show-for-sr">Bulbasaur</span>
+                    </label>
+                </div>
+            </label>
+        </div>
+        <div>
+            <label>
+                <h6>Ver modulo Noticias</h6>
+                <div class="switch">
+                <input class="switch-input" id="actvModNoticas" type="checkbox" [checked]="forma.value.actvModNoticias" formControlName="actvModNoticias">
+                    <label class="switch-paddle" for="actvModNoticas">
+                    <span class="show-for-sr">Bulbasaur</span>
+                    </label>
+                </div>
+            </label>
+        </div>
 
-    <button type="submit" class="btn btn-outline-primary">
-        Guardar
-      </button>
+        <div>
+            <label>
+                <h6>Ver modulo Detalle2</h6>
+                <div class="switch">
+                <input class="switch-input" id="actvModDetalle2" type="checkbox" [checked]="forma.value.actvModDetalle2" formControlName="actvModDetalle2">
+                    <label class="switch-paddle" for="actvModDetalle2">
+                    <span class="show-for-sr">Bulbasaur</span>
+                    </label>
+                </div>
+            </label>
+        </div>
+        <div>
+            <label>
+                <h6>Ver modulo Galeria</h6>
+                <div class="switch">
+                <input class="switch-input" id="actvModGaleria" type="checkbox" [checked]="config.actvModGaleria.value" name="actvModGaleria" formControlName="actvModGaleria">
+                    <label class="switch-paddle" for="actvModGaleria">
+                    <span class="show-for-sr">Bulbasaur</span>
+                    </label>
+                </div>
+            </label>
+        </div>
+
+        <button type="submit" class="success button">
+            Guardar
+        </button>
+
+    </div>
     </form>
-</div> -->
+</div>
