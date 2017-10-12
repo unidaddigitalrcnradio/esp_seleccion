@@ -14,7 +14,8 @@ import { RedesComponent } from './redessociales/redessociales.component';
 //Servicios
 import { LeerArchivoService } from "./leerconfig.service";
 import { NoticiasService } from "./noticias/noticias.service";
-
+import { AuthService } from "./service/auth.service";
+import { AuthGuardService } from "./service/auth-guard.service";
 //Routin
 import { APP_ROUTING } from "./app.routes";
 
@@ -50,7 +51,9 @@ import { FirebaseService } from "./service/firebase.service";
     {provide:LOCALE_ID, useValue:"es"},
     LeerArchivoService,
     NoticiasService,
-    FirebaseService
+    FirebaseService,
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

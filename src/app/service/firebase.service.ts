@@ -12,7 +12,7 @@ export class FirebaseService {
 
   fireUrl:string="https://especialesrcn-e50ca.firebaseio.com/config.json";
   configUrl:string="https://especialesrcn-e50ca.firebaseio.com/config";
-  key:string="-KwCM2LFUvAU8VVKdUZd";
+  key:string="-KwFwrkm87ZthXhYcwbr";
 
   constructor(private _http:Http) { }
 
