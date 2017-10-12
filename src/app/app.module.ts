@@ -26,6 +26,7 @@ import { HomealternoComponent } from './home/homealterno/homealterno.component';
 import { ConfigComponent } from './config/config.component';
 import { HomeComponent } from './home/home.component';
 import { FirebaseService } from "./service/firebase.service";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FirebaseService } from "./service/firebase.service";
     HomeppalComponent,
     HomealternoComponent,
     ConfigComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
     ],
   imports: [
     BrowserModule,

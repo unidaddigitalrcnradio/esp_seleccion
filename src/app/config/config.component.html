@@ -1,3 +1,23 @@
+<div *ngIf="auth.isAuthenticated()">
+        <div class="callout clearfix">
+                <div class="media-object">
+                        <div class="media-object-section">
+                          <div class="thumbnail">
+                            <img [src]="profile.picture" style="width:20%;" class="float-left">
+                            <h4> Nombre: <strong> {{profile.name}}</strong></h4>
+                            <h6> Ultima Modificacion <strong>{{ config.dateUltAct | date:'medium'}}</strong> </h6>
+                            <h6>Quien realizo la ultima modificación: <strong> {{ config.nameHowMod }}</strong></h6>
+                          </div>
+                        </div>
+                        <div class="media-object-section">
+                                <button class="hollow button alert float-right" (click)="salir()">Salir</button>
+                        </div>
+                      </div>
+
+        </div>
+
+</div>
+
 
 <div class="main-container" *ngIf="crearNuevo">
         <a class="button success" (click)="crearNuevoForm()">Crear Nuevo</a>

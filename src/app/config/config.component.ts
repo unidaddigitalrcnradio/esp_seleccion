@@ -5,6 +5,11 @@ import { Livestream } from "../interfaces/livestream";
 import { Youtube } from "../interfaces/youtube";
 import { Video } from "../interfaces/video";
 import { FirebaseService } from "../service/firebase.service";
+import { AuthService } from "../service/auth.service";
+import { AuthGuardService } from "../service/auth-guard.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-config',
@@ -15,12 +20,13 @@ export class ConfigComponent implements OnInit {
   public crearNuevo:boolean = false;
   public activoNuevoform:boolean = false;
 
+  fecha:Date;
   _configJson;
   _l:Livestream = new Livestream("","", false);
   _y:Youtube = new Youtube("", false);
   video:Video = new Video(this._y,this._l)
   arrC:Array<string> = [""];
-  private config:Configseg = new Configseg("",this.arrC,this.video,false,false,false,false,false);
+  private config:Configseg = new Configseg("",this.arrC,this.video,false,false,false,false,false,this.hoyDate(),'');
 
   public activoYou:boolean;
   public activoLive:boolean;
@@ -29,8 +35,20 @@ export class ConfigComponent implements OnInit {
   arrForm: FormArray;
 
   radioGpEstados ;
+  profile: any;
 
-  constructor( private _fb: FormBuilder, private _fireb:FirebaseService) {
+
+  constructor( private _fb: FormBuilder, private _fireb:FirebaseService,
+              private auth:AuthService, private _routes:Router)
+  {
+    this.auth.handleAuthentication();
+
+    if (this.auth.userProfile) {
+        this.profile = this.auth.userProfile;
+    } else {
+      this.auth.getProfile((err, profile) => {
+      this.profile = profile; });
+                }
 
     _fireb.getConfig().subscribe( cnfg=>{
       this._configJson = cnfg;
@@ -118,6 +136,8 @@ export class ConfigComponent implements OnInit {
 
 
   guardarCambios(){
+
+    let nombre = this.profile.name;
     let est:string;
     let estadoy:boolean = this.forma.value.video.youtube.estadoy;
     let estadol:boolean = this.forma.value.video.livestream.estadol;
@@ -138,7 +158,7 @@ export class ConfigComponent implements OnInit {
 
     let nuevaConfig:Configseg = new Configseg(est,arr,video,
       this.forma.value.actvModVideo,this.forma.value.actvModDetalle,this.forma.value.actvModNoticias,
-      this.forma.value.actvModDetalle2,this.forma.value.actvModGaleria)
+      this.forma.value.actvModDetalle2,this.forma.value.actvModGaleria,this.hoyDate(),nombre);
 
 
      this._fireb.actualizarConfig(nuevaConfig).subscribe(
@@ -161,6 +181,8 @@ export class ConfigComponent implements OnInit {
   }
 
   guardarNuevoForm(){
+    var fecha:number =  Date.now();
+    let nombre = this.profile.name;
     let est:string;
     let y:Youtube = new Youtube(this.forma.value.video.youtube.codigo,this.forma.value.video.youtube.estadoy);
     let l:Livestream = new Livestream(this.forma.value.video.livestream.id,this.forma.value.video.livestream.src,this.forma.value.video.livestream.estadol);
@@ -177,12 +199,12 @@ export class ConfigComponent implements OnInit {
 
     let nuevaConfig:Configseg = new Configseg(est,arr,video,
       this.forma.value.actvModVideo,this.forma.value.actvModDetalle,this.forma.value.actvModNoticias,
-      this.forma.value.actvModDetalle2,this.forma.value.actvModGaleria);
+      this.forma.value.actvModDetalle2,this.forma.value.actvModGaleria,this.hoyDate(),nombre);
 
       console.log(nuevaConfig);
 
       this._fireb.nuevaConfig(nuevaConfig).subscribe(res=>{
-        this.alertaNueva("Copie el siguiente código y peguelo en el servicio de firebase.service.ts en la variable key linea 12:  " + res.name);
+        this.alertaNueva("Copie el siguiente código y peguelo en el servicio de firebase.service.ts en la variable key linea 12:" + ' \n ' + res.name);
       })
 
   }
@@ -196,6 +218,16 @@ export class ConfigComponent implements OnInit {
     window.location.reload();
   }
 
+  salir(){
+    this.auth.logout();
+    this._routes.navigate(['home']);
+  }
 
+  hoyDate():Date{
+    var today = new Date();
+    this.fecha =  new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+    return this.fecha
+  }
 
 }

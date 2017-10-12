@@ -13,12 +13,12 @@ export class AuthGuardService {
       console.log("Este es el state");
       console.log(_state);
 
-      // if(this.auth.isAuthenticated()){
-      //   console.log("Paso el guard");
-      //   return true;
-      // }else{
-      //   console.error("Bloqueado por el Guard")
-      //   return false;
-      // }
+      if(this.auth.isAuthenticated()){
+        console.log("Paso el guard");
+        return true;
+      }else{
+        console.error("Bloqueado por el Guard")
+        return false;
+      }
     }
 }

@@ -12,7 +12,7 @@ export class FirebaseService {
 
   fireUrl:string="https://especialesrcn-e50ca.firebaseio.com/config.json";
   configUrl:string="https://especialesrcn-e50ca.firebaseio.com/config";
-  key:string="-KwFwrkm87ZthXhYcwbr";
+  key:string="-KwHTFWMbaBf2YHQ5gPW";
 
   constructor(private _http:Http) { }
 
@@ -23,14 +23,12 @@ export class FirebaseService {
     });
 
     return this._http.post(this.fireUrl, body, {headers}).map( res =>{
-      console.log(res.json());
       return res.json();
     });
   }
 
   getConfig(){
     let url = `${this.configUrl}/${this.key}.json`;
-    console.log(url);
     return this._http.get(url).map(res=>res.json());
   }
 
@@ -43,7 +41,6 @@ export class FirebaseService {
     let url = `${ this.configUrl }/${this.key}.json`;
 
     return this._http.put(url, body, {headers}).map( res =>{
-      console.log(res.json());
       return res.json();
     });
   }
@@ -53,7 +50,7 @@ export class FirebaseService {
         let _youtube = new Youtube(_json.video.youtube.codigo,_json.video.youtube.estadoy);
         let _livestream = new Livestream (_json.video.livestream.id,_json.video.livestream.src,_json.video.livestream.estadol);
         let _video = new Video(_youtube,_livestream);
-        let config = new Configseg(_json.estado,_json.listaEstados,_video,_json.actvModVideo,_json.actvModDetalle,_json.actvModNoticias,_json.actvModDetalle2,_json.actvModGaleria);
+        let config = new Configseg(_json.estado,_json.listaEstados,_video,_json.actvModVideo,_json.actvModDetalle,_json.actvModNoticias,_json.actvModDetalle2,_json.actvModGaleria,_json.dateUltAct, _json.nameHowMod);
 
         return config;
       }
