@@ -20,6 +20,9 @@ export class ConfigComponent implements OnInit {
   public crearNuevo:boolean = false;
   public activoNuevoform:boolean = false;
 
+  public notificacion:boolean = false;
+  public mensajeNoti:string = "";
+
   fecha:Date;
   _configJson;
   _l:Livestream = new Livestream("","", false);
@@ -36,12 +39,15 @@ export class ConfigComponent implements OnInit {
 
   radioGpEstados ;
   profile: any;
-
+  perfilLeo:any;
 
   constructor( private _fb: FormBuilder, private _fireb:FirebaseService,
               private auth:AuthService, private _routes:Router)
   {
     this.auth.handleAuthentication();
+
+    this.perfilLeo = JSON.parse(localStorage.getItem('profile'));
+    console.log(this.perfilLeo);
 
     if (this.auth.userProfile) {
         this.profile = this.auth.userProfile;
@@ -64,7 +70,7 @@ export class ConfigComponent implements OnInit {
         //Esto escucha solo un objeto del form, ejemplo video
         this.forma.controls['video'].valueChanges.subscribe(
           data=>{
-            //console.log(data['youtube']['estadol']);
+
             this.activoLive = data['livestream']['estadol'];
             this.activoYou = data['youtube']['estadoy'];
           });
@@ -72,8 +78,6 @@ export class ConfigComponent implements OnInit {
                   //Esto escucha solo un objeto del form, ejemplo video
         this.forma.controls['video'].valueChanges.subscribe(
           list=>{
-            console.log(list);
-
           });
         }
 
@@ -93,7 +97,7 @@ export class ConfigComponent implements OnInit {
   }
 
   crearForm(_config:Configseg):FormGroup{
-    //console.log(_config.estado);
+
     let formulario:FormGroup;
     this.arrForm = this._fb.array([]);
 
@@ -129,11 +133,6 @@ export class ConfigComponent implements OnInit {
   cambioCar(data){
     this.radioGpEstados = data;
   }
-  cambiarEstado(_obj){
-    console.log(_obj);
-  }
-
-
 
   guardarCambios(){
 
@@ -163,8 +162,9 @@ export class ConfigComponent implements OnInit {
 
      this._fireb.actualizarConfig(nuevaConfig).subscribe(
        res=>{
-         console.log(res);
-         this.recargar();
+          // this.recargar();
+           this.alertaNueva('Usted a modificado el contenido');
+
        }
      );
 
@@ -193,15 +193,11 @@ export class ConfigComponent implements OnInit {
       arr.push(k);
      }
 
-     console.log(arr);
      est = this.forma.value.estado;
-
 
     let nuevaConfig:Configseg = new Configseg(est,arr,video,
       this.forma.value.actvModVideo,this.forma.value.actvModDetalle,this.forma.value.actvModNoticias,
       this.forma.value.actvModDetalle2,this.forma.value.actvModGaleria,this.hoyDate(),nombre);
-
-      console.log(nuevaConfig);
 
       this._fireb.nuevaConfig(nuevaConfig).subscribe(res=>{
         this.alertaNueva("Copie el siguiente código y peguelo en el servicio de firebase.service.ts en la variable key linea 12:" + ' \n ' + res.name);
@@ -209,9 +205,10 @@ export class ConfigComponent implements OnInit {
 
   }
 
-  alertaNueva(resp): void {
-    alert(resp);
-    this.recargar();
+  alertaNueva(resp:string): void {
+    this.notificacion = true;
+    this.mensajeNoti = resp;
+    //this.recargar();
   }
 
   recargar(){
@@ -223,11 +220,10 @@ export class ConfigComponent implements OnInit {
     this._routes.navigate(['home']);
   }
 
-  hoyDate():Date{
-    var today = new Date();
-    this.fecha =  new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  hoyDate():number{
+    var today:number = Date.now();
 
-    return this.fecha
+    return today;
   }
 
 }

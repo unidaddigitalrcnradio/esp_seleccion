@@ -10,7 +10,7 @@ export class Configseg{
         public  actvModNoticias:boolean
         public  actvModDetalle2:boolean
         public  actvModGaleria:boolean
-        public  dateUltAct:Date
+        public  dateUltAct:number
         public  nameHowMod:string
 
         constructor(_estado:string,
@@ -21,7 +21,7 @@ export class Configseg{
                 _actvModNoticias:boolean,
                 _actvModDetalle2:boolean,
                 _actvModGaleria:boolean,
-                _dateUltAct:Date,
+                _dateUltAct:number,
                 _nameHowMod:string
                 ){
                         this.estado = _estado;

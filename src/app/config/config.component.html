@@ -18,6 +18,15 @@
 
 </div>
 
+<pre>
+    {{ profile | json }}
+</pre>
+
+<div class="callout success" *ngIf="notificacion">
+    <h1>Se realizaron los cambios</h1>
+    <h5>{{ mensajeNoti }}</h5>
+
+</div>
 
 <div class="main-container" *ngIf="crearNuevo">
         <a class="button success" (click)="crearNuevoForm()">Crear Nuevo</a>
