@@ -42,7 +42,7 @@ export class ConfigComponent implements OnInit {
   perfilLeo:any;
 
   constructor( private _fb: FormBuilder, private _fireb:FirebaseService,
-              private auth:AuthService, private _routes:Router)
+              public auth:AuthService, private _routes:Router)
   {
     this.auth.handleAuthentication();
 
